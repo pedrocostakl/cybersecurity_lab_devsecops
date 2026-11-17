@@ -1,0 +1,24 @@
+﻿2026-11-07T19:05:01.2616024Z ##[group]Run sleep 5
+2026-11-07T19:05:01.2616598Z [36;1msleep 5[0m
+2026-11-07T19:05:01.2617206Z [36;1mcurl --fail http://127.0.0.1:5001/[0m
+2026-11-07T19:05:01.2637237Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:05:01.2637804Z env:
+2026-11-07T19:05:01.2638550Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:01.2639573Z ##[endgroup]
+2026-11-07T19:05:06.2774676Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-11-07T19:05:06.2775581Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-11-07T19:05:06.2776026Z 
+2026-11-07T19:05:06.2797305Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-07T19:05:06.2798226Z 100   252  100   252    0     0   104k      0 --:--:-- --:--:-- --:--:--  123k
+2026-11-07T19:05:06.2804984Z {
+2026-11-07T19:05:06.2805466Z   "endpoints": [
+2026-11-07T19:05:06.2805858Z     "POST /login",
+2026-11-07T19:05:06.2806172Z     "POST /logout",
+2026-11-07T19:05:06.2806807Z     "GET /me",
+2026-11-07T19:05:06.2807248Z     "GET /students/<student_id>/profile",
+2026-11-07T19:05:06.2807812Z     "POST /grades/update",
+2026-11-07T19:05:06.2808260Z     "GET /grades/<student_id>",
+2026-11-07T19:05:06.2808948Z     "GET /files?path=<name>"
+2026-11-07T19:05:06.2809614Z   ],
+2026-11-07T19:05:06.2810069Z   "message": "Baseline Secure Coding API"
+2026-11-07T19:05:06.2810597Z }

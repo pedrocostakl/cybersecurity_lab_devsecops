@@ -1,0 +1,16 @@
+﻿2026-11-07T19:04:37.0412150Z ##[group]Run mkdir -p reports
+2026-11-07T19:04:37.0412534Z [36;1mmkdir -p reports[0m
+2026-11-07T19:04:37.0412908Z [36;1mpython --version > reports/python-version.txt[0m
+2026-11-07T19:04:37.0413615Z [36;1mpython -m pip freeze > reports/tool-environment.txt[0m
+2026-11-07T19:04:37.0414063Z [36;1mbandit --version > reports/bandit-version.txt[0m
+2026-11-07T19:04:37.0414525Z [36;1msemgrep --version > reports/semgrep-version.txt[0m
+2026-11-07T19:04:37.0431020Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:04:37.0431292Z env:
+2026-11-07T19:04:37.0431659Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:37.0432129Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:37.0432552Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-11-07T19:04:37.0432972Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:37.0433636Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:37.0434054Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:37.0434442Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-11-07T19:04:37.0434762Z ##[endgroup]

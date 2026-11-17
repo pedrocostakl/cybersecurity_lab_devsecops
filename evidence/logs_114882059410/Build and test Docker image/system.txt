@@ -1,0 +1,8 @@
+2026-11-07T19:04:45.4450000Z Evaluating build.if
+2026-11-07T19:04:45.4450000Z Evaluating: success()
+2026-11-07T19:04:45.4450000Z Result: true
+2026-11-07T19:04:45.4520000Z Job is waiting for a hosted runner to come online.
+2026-11-07T19:04:45.4520000Z Job is about to start running on the hosted runner: GitHub Actions 1000000488
+2026-11-07T19:04:45.4590000Z Requested labels: ubuntu-latest
+2026-11-07T19:04:45.4590000Z Job defined at: pedrocostakl/cybersecurity_lab_devsecops/.github/workflows/ci.yml@refs/heads/main
+2026-11-07T19:04:45.4590000Z Waiting for a runner to pick up this job...

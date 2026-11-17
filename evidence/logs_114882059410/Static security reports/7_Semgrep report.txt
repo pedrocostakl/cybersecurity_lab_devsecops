@@ -1,0 +1,31 @@
+﻿2026-11-07T19:04:39.1465892Z ##[group]Run semgrep scan --config p/python --metrics=off --strict --json --output reports/semgrep.json baseline_secure_coding_api.py
+2026-11-07T19:04:39.1466936Z [36;1msemgrep scan --config p/python --metrics=off --strict --json --output reports/semgrep.json baseline_secure_coding_api.py[0m
+2026-11-07T19:04:39.1482335Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:04:39.1482602Z env:
+2026-11-07T19:04:39.1482957Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:39.1483676Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:39.1484109Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-11-07T19:04:39.1484532Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:39.1484920Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:39.1485295Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:39.1485675Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-11-07T19:04:39.1486045Z ##[endgroup]
+2026-11-07T19:04:40.4858950Z                
+2026-11-07T19:04:40.4859547Z                
+2026-11-07T19:04:40.4860216Z ┌─────────────┐
+2026-11-07T19:04:40.4860681Z │ Scan Status │
+2026-11-07T19:04:40.4861140Z └─────────────┘
+2026-11-07T19:04:40.4862449Z   Scanning 1 file tracked by git with 151 Code rules:
+2026-11-07T19:04:40.4868417Z   Scanning 1 file with 151 python rules.
+2026-11-07T19:04:40.8739448Z                 
+2026-11-07T19:04:40.8739929Z                 
+2026-11-07T19:04:40.8740491Z ┌──────────────┐
+2026-11-07T19:04:40.8740865Z │ Scan Summary │
+2026-11-07T19:04:40.8741252Z └──────────────┘
+2026-11-07T19:04:40.8741679Z ✅ Scan completed successfully.
+2026-11-07T19:04:40.8742007Z  • Findings: 2 (2 blocking)
+2026-11-07T19:04:40.8742262Z  • Rules run: 151
+2026-11-07T19:04:40.8742494Z  • Targets scanned: 1
+2026-11-07T19:04:40.8742750Z  • Parsed lines: ~100.0%
+2026-11-07T19:04:40.8743183Z  • No ignore information available
+2026-11-07T19:04:40.8743527Z Ran 151 rules on 1 file: 2 findings.

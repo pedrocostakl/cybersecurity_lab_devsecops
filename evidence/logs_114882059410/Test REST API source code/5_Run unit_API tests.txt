@@ -1,0 +1,25 @@
+﻿2026-11-07T19:04:22.5627815Z ##[group]Run python -m pytest -v tests                                                                         
+2026-11-07T19:04:22.5628484Z [36;1mpython -m pytest -v tests                                                                         [0m
+2026-11-07T19:04:22.5650339Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:04:22.5650961Z env:
+2026-11-07T19:04:22.5651330Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:22.5651845Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:22.5652310Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-11-07T19:04:22.5652767Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:22.5653167Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:22.5653577Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:22.5653984Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-11-07T19:04:22.5654366Z ##[endgroup]
+2026-11-07T19:04:22.7964495Z ============================= test session starts ==============================
+2026-11-07T19:04:22.7965793Z platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.10.22/x64/bin/python
+2026-11-07T19:04:22.7966679Z cachedir: .pytest_cache
+2026-11-07T19:04:22.7967303Z rootdir: /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops
+2026-11-07T19:04:22.8994205Z collecting ... collected 5 items
+2026-11-07T19:04:22.8994676Z 
+2026-11-07T19:04:22.9038868Z tests/test_api.py::test_index_lists_endpoints PASSED                     [ 20%]
+2026-11-07T19:04:22.9052512Z tests/test_api.py::test_me_without_login_returns_no_user PASSED          [ 40%]
+2026-11-07T19:04:22.9076012Z tests/test_api.py::test_login_with_valid_credentials PASSED              [ 60%]
+2026-11-07T19:04:22.9089412Z tests/test_api.py::test_get_student_profile PASSED                       [ 80%]
+2026-11-07T19:04:22.9263065Z tests/test_api.py::test_get_student_grades PASSED                        [100%]
+2026-11-07T19:04:22.9263896Z 
+2026-11-07T19:04:22.9264142Z ============================== 5 passed in 0.12s ===============================

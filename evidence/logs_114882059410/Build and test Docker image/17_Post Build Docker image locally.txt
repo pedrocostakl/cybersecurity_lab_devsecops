@@ -1,0 +1,23 @@
+﻿2026-11-07T19:05:19.8809039Z Post job cleanup.
+2026-11-07T19:05:20.1078961Z ##[group]Generating build summary
+2026-11-07T19:05:20.1788457Z exporting build record to /home/runner/work/_temp/docker-actions-toolkit-gvNoHo/export
+2026-11-07T19:05:20.2526742Z [command]/usr/bin/docker buildx history export --builder default --output /home/runner/work/_temp/docker-actions-toolkit-gvNoHo/export/pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild v1w0blykp89c7029j2nswzq0e --finalize
+2026-11-07T19:05:20.3572217Z Build record written to /home/runner/work/_temp/docker-actions-toolkit-gvNoHo/export/pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild (19.21 KB)
+2026-11-07T19:05:20.3573840Z Uploading pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild as an artifact
+2026-11-07T19:05:20.3580124Z Artifact name is valid!
+2026-11-07T19:05:20.3580669Z Root directory input is valid!
+2026-11-07T19:05:20.6994661Z Uploading artifact: pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild
+2026-11-07T19:05:20.7026894Z Beginning upload of artifact content to blob storage
+2026-11-07T19:05:20.9911770Z Uploaded bytes 19669
+2026-11-07T19:05:21.0533385Z Finished uploading artifact content to blob storage!
+2026-11-07T19:05:21.0534570Z SHA256 digest of uploaded artifact is 80b9db6b548b8a28e54c13f8a995ff8135ff5a6408dd09a3413f6208b001d1c8
+2026-11-07T19:05:21.0535495Z Finalizing artifact upload
+2026-11-07T19:05:21.5683520Z Artifact pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild successfully finalized. Artifact ID 13586273477
+2026-11-07T19:05:21.5685305Z Artifact download URL: https://github.com/pedrocostakl/cybersecurity_lab_devsecops/actions/runs/42404377970/artifacts/13586273477
+2026-11-07T19:05:21.5713259Z Writing summary
+2026-11-07T19:05:21.5724816Z ##[endgroup]
+2026-11-07T19:05:21.5725717Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-0YVzQh
+2026-11-07T19:05:21.5732039Z ##[endgroup]
+2026-11-07T19:05:21.5732647Z ##[group]Post cache
+2026-11-07T19:05:21.5733128Z State not set
+2026-11-07T19:05:21.5733757Z ##[endgroup]

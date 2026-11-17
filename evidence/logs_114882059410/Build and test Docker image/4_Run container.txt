@@ -1,0 +1,10 @@
+﻿2026-11-07T19:05:01.0607007Z ##[group]Run docker run -d \
+2026-11-07T19:05:01.0607581Z [36;1mdocker run -d \[0m
+2026-11-07T19:05:01.0608039Z [36;1m  --name secure-coding-api \[0m
+2026-11-07T19:05:01.0608423Z [36;1m  -p 5001:5001 \[0m
+2026-11-07T19:05:01.0608961Z [36;1m  secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06[0m
+2026-11-07T19:05:01.0627194Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:05:01.0627671Z env:
+2026-11-07T19:05:01.0628127Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:01.0628709Z ##[endgroup]
+2026-11-07T19:05:01.0951882Z 8efaca6a31a41de145596d373cd404e0c0100e200044a61d78bd032623e12627
