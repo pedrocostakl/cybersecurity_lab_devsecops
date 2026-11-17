@@ -1,0 +1,11 @@
+﻿2026-11-07T19:05:06.4676466Z ##[group]Run docker/login-action@v4
+2026-11-07T19:05:06.4676860Z with:
+2026-11-07T19:05:06.4677150Z   registry: ghcr.io
+2026-11-07T19:05:06.4677547Z   username: LinoxVaz
+2026-11-07T19:05:06.4680343Z   password: ***
+2026-11-07T19:05:06.4680686Z   logout: true
+2026-11-07T19:05:06.4681010Z env:
+2026-11-07T19:05:06.4681485Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:06.4681988Z ##[endgroup]
+2026-11-07T19:05:06.6688271Z Logging into ghcr.io...
+2026-11-07T19:05:07.2880659Z Login Succeeded!

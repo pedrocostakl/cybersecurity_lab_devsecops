@@ -1,0 +1,37 @@
+﻿2026-11-07T19:04:12.6852985Z ##[group]Run actions/setup-python@v7
+2026-11-07T19:04:12.6855179Z with:
+2026-11-07T19:04:12.6856527Z   python-version: 3.10
+2026-11-07T19:04:12.6858094Z   check-latest: false
+2026-11-07T19:04:12.6875387Z   token: ***
+2026-11-07T19:04:12.6877498Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-07T19:04:12.6880266Z   update-environment: true
+2026-11-07T19:04:12.6881972Z   allow-prereleases: false
+2026-11-07T19:04:12.6883824Z   freethreaded: false
+2026-11-07T19:04:12.6885308Z env:
+2026-11-07T19:04:12.6887511Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:12.6890348Z ##[endgroup]
+2026-11-07T19:04:12.8206974Z ##[group]Installed versions
+2026-11-07T19:04:12.8295521Z Version 3.10 was not found in the local cache
+2026-11-07T19:04:13.5247092Z Version 3.10 is available for downloading
+2026-11-07T19:04:13.5250058Z Download from "https://github.com/actions/python-versions/releases/download/3.10.22-36876129702/python-3.10.22-linux-24.04-x64.tar.gz"
+2026-11-07T19:04:14.0733786Z Extract downloaded archive
+2026-11-07T19:04:14.0851679Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/82461410-5d79-4a3f-bce4-1d1ba45af754 -f /home/runner/work/_temp/343f04f7-948a-40e8-bf90-4428fb0b692c
+2026-11-07T19:04:15.4059374Z Execute installation script
+2026-11-07T19:04:15.4147521Z Check if Python hostedtoolcache folder exist...
+2026-11-07T19:04:15.4148280Z Create Python 3.10.22 folder
+2026-11-07T19:04:15.4160226Z Copy Python binaries to hostedtoolcache folder
+2026-11-07T19:04:15.6644506Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-11-07T19:04:15.6686800Z Upgrading pip...
+2026-11-07T19:04:17.4618754Z Collecting pip
+2026-11-07T19:04:17.5557192Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-07T19:04:17.6790965Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 16.1 MB/s eta 0:00:00
+2026-11-07T19:04:17.6791493Z 
+2026-11-07T19:04:17.7334093Z Installing collected packages: pip
+2026-11-07T19:04:17.7334788Z Attempting uninstall: pip
+2026-11-07T19:04:17.7341060Z Found existing installation: pip 23.0.1
+2026-11-07T19:04:17.8558467Z Uninstalling pip-23.0.1:
+2026-11-07T19:04:17.8620822Z Successfully uninstalled pip-23.0.1
+2026-11-07T19:04:18.6413750Z Successfully installed pip-26.3
+2026-11-07T19:04:18.7356576Z Create complete file
+2026-11-07T19:04:18.7398594Z Successfully set up CPython (3.10.22)
+2026-11-07T19:04:18.7399394Z ##[endgroup]

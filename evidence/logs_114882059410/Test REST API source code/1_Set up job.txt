@@ -1,0 +1,34 @@
+﻿2026-11-07T19:04:10.7545209Z Current runner version: '2.338.2'
+2026-11-07T19:04:10.7570777Z ##[group]Runner Image Provisioner
+2026-11-07T19:04:10.7571804Z Hosted Compute Agent
+2026-11-07T19:04:10.7572444Z Version: 20261028.624
+2026-11-07T19:04:10.7573085Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-07T19:04:10.7573943Z Build Date: 2026-10-28T21:51:42Z
+2026-11-07T19:04:10.7574634Z Worker ID: {80e3518a-33e0-4365-aadd-227980f95c60}
+2026-11-07T19:04:10.7575385Z Region: westus
+2026-11-07T19:04:10.7576010Z Cloud: Azure
+2026-11-07T19:04:10.7576575Z ##[endgroup]
+2026-11-07T19:04:10.7578104Z ##[group]Operating System
+2026-11-07T19:04:10.7578789Z Ubuntu
+2026-11-07T19:04:10.7579776Z 24.04.5
+2026-11-07T19:04:10.7580368Z LTS
+2026-11-07T19:04:10.7581160Z ##[endgroup]
+2026-11-07T19:04:10.7581808Z ##[group]Runner Image
+2026-11-07T19:04:10.7582482Z Image: ubuntu-24.04
+2026-11-07T19:04:10.7583052Z Version: 20261101.360.1
+2026-11-07T19:04:10.7584241Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-07T19:04:10.7586080Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-07T19:04:10.7587070Z ##[endgroup]
+2026-11-07T19:04:10.7588345Z ##[group]GITHUB_TOKEN Permissions
+2026-11-07T19:04:10.7590332Z Contents: read
+2026-11-07T19:04:10.7591318Z Metadata: read
+2026-11-07T19:04:10.7591947Z Packages: write
+2026-11-07T19:04:10.7592525Z ##[endgroup]
+2026-11-07T19:04:10.7595139Z Secret source: Actions
+2026-11-07T19:04:10.7596217Z Cache mode: write
+2026-11-07T19:04:10.7597205Z Prepare workflow directory
+2026-11-07T19:04:10.8167237Z Prepare all required actions
+2026-11-07T19:04:10.8218511Z Getting action download info
+2026-11-07T19:04:11.1854661Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-07T19:04:11.2958195Z Download action repository 'actions/setup-python@v7' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-07T19:04:11.7695180Z Complete job name: Test REST API source code

@@ -1,0 +1,17 @@
+﻿2026-11-07T19:04:38.9797828Z ##[group]Run bandit baseline_secure_coding_api.py --exit-zero -f json -o reports/bandit.json
+2026-11-07T19:04:38.9798604Z [36;1mbandit baseline_secure_coding_api.py --exit-zero -f json -o reports/bandit.json[0m
+2026-11-07T19:04:38.9814457Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:04:38.9814772Z env:
+2026-11-07T19:04:38.9815202Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:38.9815773Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:38.9816295Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-11-07T19:04:38.9816798Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:38.9817262Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:38.9817711Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-07T19:04:38.9818160Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-11-07T19:04:38.9818539Z ##[endgroup]
+2026-11-07T19:04:39.1043907Z [main]	INFO	profile include tests: None
+2026-11-07T19:04:39.1044364Z [main]	INFO	profile exclude tests: None
+2026-11-07T19:04:39.1044787Z [main]	INFO	cli include tests: None
+2026-11-07T19:04:39.1045243Z [main]	INFO	cli exclude tests: None
+2026-11-07T19:04:39.1241434Z [json]	INFO	JSON output written to file: reports/bandit.json

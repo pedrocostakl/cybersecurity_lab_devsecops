@@ -1,0 +1,856 @@
+﻿2026-11-07T19:04:47.5234202Z Current runner version: '2.338.2'
+2026-11-07T19:04:47.5257505Z ##[group]Runner Image Provisioner
+2026-11-07T19:04:47.5258324Z Hosted Compute Agent
+2026-11-07T19:04:47.5258990Z Version: 20261028.624
+2026-11-07T19:04:47.5259937Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-07T19:04:47.5260791Z Build Date: 2026-10-28T21:51:42Z
+2026-11-07T19:04:47.5261486Z Worker ID: {6a05fe3d-f08c-404a-8b3b-211450449c2d}
+2026-11-07T19:04:47.5262163Z Region: westus3
+2026-11-07T19:04:47.5262747Z Cloud: Azure
+2026-11-07T19:04:47.5263266Z ##[endgroup]
+2026-11-07T19:04:47.5264881Z ##[group]Operating System
+2026-11-07T19:04:47.5265516Z Ubuntu
+2026-11-07T19:04:47.5266012Z 24.04.5
+2026-11-07T19:04:47.5266529Z LTS
+2026-11-07T19:04:47.5267018Z ##[endgroup]
+2026-11-07T19:04:47.5267527Z ##[group]Runner Image
+2026-11-07T19:04:47.5268165Z Image: ubuntu-24.04
+2026-11-07T19:04:47.5268728Z Version: 20261101.360.1
+2026-11-07T19:04:47.5270054Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-07T19:04:47.5271443Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-07T19:04:47.5272383Z ##[endgroup]
+2026-11-07T19:04:47.5273517Z ##[group]GITHUB_TOKEN Permissions
+2026-11-07T19:04:47.5275650Z Contents: read
+2026-11-07T19:04:47.5276191Z Metadata: read
+2026-11-07T19:04:47.5276782Z Packages: write
+2026-11-07T19:04:47.5277321Z ##[endgroup]
+2026-11-07T19:04:47.5279425Z Secret source: Actions
+2026-11-07T19:04:47.5280386Z Cache mode: write
+2026-11-07T19:04:47.5281046Z Prepare workflow directory
+2026-11-07T19:04:47.5796256Z Prepare all required actions
+2026-11-07T19:04:47.5846174Z Getting action download info
+2026-11-07T19:04:47.9007474Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-07T19:04:47.9823947Z Download action repository 'docker/build-push-action@v7' (SHA:c3c9e263c25d99ce0380d002d59b67737d91b0dc)
+2026-11-07T19:04:48.7654617Z Download action repository 'docker/login-action@v4' (SHA:8aa5831fb8d48d8f76594c7ddde61ae58019f550)
+2026-11-07T19:04:49.5415390Z Complete job name: Build and test Docker image
+2026-11-07T19:04:49.6293994Z ##[group]Run actions/checkout@v7
+2026-11-07T19:04:49.6295428Z with:
+2026-11-07T19:04:49.6296575Z   repository: pedrocostakl/cybersecurity_lab_devsecops
+2026-11-07T19:04:49.6305081Z   token: ***
+2026-11-07T19:04:49.6306131Z   ssh-strict: true
+2026-11-07T19:04:49.6307157Z   ssh-user: git
+2026-11-07T19:04:49.6308172Z   persist-credentials: true
+2026-11-07T19:04:49.6309514Z   clean: true
+2026-11-07T19:04:49.6310727Z   sparse-checkout-cone-mode: true
+2026-11-07T19:04:49.6311900Z   fetch-depth: 1
+2026-11-07T19:04:49.6312927Z   fetch-tags: false
+2026-11-07T19:04:49.6313933Z   show-progress: true
+2026-11-07T19:04:49.6315003Z   lfs: false
+2026-11-07T19:04:49.6316028Z   submodules: false
+2026-11-07T19:04:49.6317075Z   set-safe-directory: true
+2026-11-07T19:04:49.6318270Z   allow-unsafe-pr-checkout: false
+2026-11-07T19:04:49.6319872Z env:
+2026-11-07T19:04:49.6321402Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:49.6323083Z ##[endgroup]
+2026-11-07T19:04:49.9302273Z Syncing repository: pedrocostakl/cybersecurity_lab_devsecops
+2026-11-07T19:04:49.9306007Z ##[group]Getting Git version info
+2026-11-07T19:04:49.9307960Z Working directory is '/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops'
+2026-11-07T19:04:49.9310984Z [command]/usr/bin/git version
+2026-11-07T19:04:49.9394232Z git version 2.56.0
+2026-11-07T19:04:49.9414191Z ##[endgroup]
+2026-11-07T19:04:49.9423678Z Temporarily overriding HOME='/home/runner/work/_temp/dbd27bd7-7009-46af-8568-0e4a25be5057' before making global git config changes
+2026-11-07T19:04:49.9427673Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-07T19:04:49.9431665Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops
+2026-11-07T19:04:49.9472710Z Deleting the contents of '/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops'
+2026-11-07T19:04:49.9477011Z ##[group]Determining repository object format
+2026-11-07T19:04:49.9480210Z ##[endgroup]
+2026-11-07T19:04:49.9482618Z ##[group]Initializing the repository
+2026-11-07T19:04:49.9486413Z [command]/usr/bin/git init /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops
+2026-11-07T19:04:49.9589881Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-07T19:04:49.9593343Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-07T19:04:49.9596543Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-07T19:04:49.9599467Z hint: call:
+2026-11-07T19:04:49.9601209Z hint:
+2026-11-07T19:04:49.9603285Z hint: 	git config --global init.defaultBranch <name>
+2026-11-07T19:04:49.9605532Z hint:
+2026-11-07T19:04:49.9607754Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-07T19:04:49.9611321Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-07T19:04:49.9614211Z hint:
+2026-11-07T19:04:49.9616115Z hint: 	git branch -m <name>
+2026-11-07T19:04:49.9617762Z hint:
+2026-11-07T19:04:49.9619776Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-07T19:04:49.9623929Z Initialized empty Git repository in /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/
+2026-11-07T19:04:49.9631012Z [command]/usr/bin/git remote add origin https://github.com/pedrocostakl/cybersecurity_lab_devsecops
+2026-11-07T19:04:49.9670333Z ##[endgroup]
+2026-11-07T19:04:49.9672649Z ##[group]Disabling automatic garbage collection
+2026-11-07T19:04:49.9674622Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-07T19:04:49.9706263Z ##[endgroup]
+2026-11-07T19:04:49.9708196Z ##[group]Setting up auth
+2026-11-07T19:04:49.9709646Z Removing SSH command configuration
+2026-11-07T19:04:49.9714067Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-07T19:04:49.9750797Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-07T19:04:50.0115249Z Removing HTTP extra header
+2026-11-07T19:04:50.0121134Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-07T19:04:50.0175189Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-07T19:04:50.0375084Z Removing includeIf entries pointing to credentials config files
+2026-11-07T19:04:50.0379815Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-07T19:04:50.0419053Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-07T19:04:50.0620226Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-07T19:04:50.0648655Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git.path /home/runner/work/_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:04:50.0680005Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:04:50.0728303Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:04:50.0762238Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:04:50.0791018Z ##[endgroup]
+2026-11-07T19:04:50.0792590Z ##[group]Fetching the repository
+2026-11-07T19:04:50.0797658Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +14afdb288ad0591c777048f7e45e2bc20cd4de06:refs/remotes/origin/main
+2026-11-07T19:04:50.6081435Z From https://github.com/pedrocostakl/cybersecurity_lab_devsecops
+2026-11-07T19:04:50.6082242Z  * [new ref]         14afdb288ad0591c777048f7e45e2bc20cd4de06 -> origin/main
+2026-11-07T19:04:50.6094096Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-07T19:04:50.6124972Z   origin/main
+2026-11-07T19:04:50.6133192Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-07T19:04:50.6157570Z 14afdb288ad0591c777048f7e45e2bc20cd4de06
+2026-11-07T19:04:50.6161039Z ##[endgroup]
+2026-11-07T19:04:50.6161940Z ##[group]Determining the checkout info
+2026-11-07T19:04:50.6163097Z ##[endgroup]
+2026-11-07T19:04:50.6167599Z [command]/usr/bin/git sparse-checkout disable
+2026-11-07T19:04:50.6220013Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-07T19:04:50.6251621Z ##[group]Checking out the ref
+2026-11-07T19:04:50.6254968Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-07T19:04:50.6329799Z Switched to a new branch 'main'
+2026-11-07T19:04:50.6333591Z branch 'main' set up to track 'origin/main'.
+2026-11-07T19:04:50.6338109Z ##[endgroup]
+2026-11-07T19:04:50.6376655Z [command]/usr/bin/git log -1 --format=%H
+2026-11-07T19:04:50.6400648Z 14afdb288ad0591c777048f7e45e2bc20cd4de06
+2026-11-07T19:04:50.6668976Z ##[group]Run docker/build-push-action@v7
+2026-11-07T19:04:50.6669721Z with:
+2026-11-07T19:04:50.6670122Z   context: .
+2026-11-07T19:04:50.6670491Z   push: false
+2026-11-07T19:04:50.6670865Z   load: true
+2026-11-07T19:04:50.6671366Z   tags: secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06
+2026-11-07T19:04:50.6671898Z   no-cache: false
+2026-11-07T19:04:50.6672272Z   pull: false
+2026-11-07T19:04:50.6674819Z   github-token: ***
+2026-11-07T19:04:50.6675174Z env:
+2026-11-07T19:04:50.6675727Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:04:50.6676286Z ##[endgroup]
+2026-11-07T19:04:50.9082005Z ##[group]GitHub Actions runtime token ACs
+2026-11-07T19:04:50.9090391Z refs/heads/main: read/write
+2026-11-07T19:04:50.9091527Z ##[endgroup]
+2026-11-07T19:04:50.9092560Z ##[group]Docker info
+2026-11-07T19:04:50.9132178Z [command]/usr/bin/docker version
+2026-11-07T19:04:51.0206269Z Client: Docker Engine - Community
+2026-11-07T19:04:51.0208950Z  Version:           28.0.4
+2026-11-07T19:04:51.0209762Z  API version:       1.48
+2026-11-07T19:04:51.0210283Z  Go version:        go1.23.7
+2026-11-07T19:04:51.0210844Z  Git commit:        b8034c0
+2026-11-07T19:04:51.0211448Z  Built:             Tue Mar 25 15:07:16 2025
+2026-11-07T19:04:51.0212080Z  OS/Arch:           linux/amd64
+2026-11-07T19:04:51.0212604Z  Context:           default
+2026-11-07T19:04:51.0212939Z 
+2026-11-07T19:04:51.0213112Z Server: Docker Engine - Community
+2026-11-07T19:04:51.0213482Z  Engine:
+2026-11-07T19:04:51.0213847Z   Version:          28.0.4
+2026-11-07T19:04:51.0214309Z   API version:      1.48 (minimum version 1.24)
+2026-11-07T19:04:51.0214773Z   Go version:       go1.23.7
+2026-11-07T19:04:51.0215174Z   Git commit:       6430e49
+2026-11-07T19:04:51.0215622Z   Built:            Tue Mar 25 15:07:16 2025
+2026-11-07T19:04:51.0216070Z   OS/Arch:          linux/amd64
+2026-11-07T19:04:51.0216470Z   Experimental:     false
+2026-11-07T19:04:51.0216833Z  containerd:
+2026-11-07T19:04:51.0217200Z   Version:          v2.4.2
+2026-11-07T19:04:51.0217664Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-07T19:04:51.0218421Z  runc:
+2026-11-07T19:04:51.0218777Z   Version:          1.5.2
+2026-11-07T19:04:51.0219155Z   GitCommit:        v1.5.2-0-g29dd3dc2
+2026-11-07T19:04:51.0220150Z  docker-init:
+2026-11-07T19:04:51.0220518Z   Version:          0.19.0
+2026-11-07T19:04:51.0220907Z   GitCommit:        de40ad0
+2026-11-07T19:04:51.0253313Z [command]/usr/bin/docker info
+2026-11-07T19:04:51.2801375Z Client: Docker Engine - Community
+2026-11-07T19:04:51.2802673Z  Version:    28.0.4
+2026-11-07T19:04:51.2803130Z  Context:    default
+2026-11-07T19:04:51.2803506Z  Debug Mode: false
+2026-11-07T19:04:51.2803916Z  Plugins:
+2026-11-07T19:04:51.2804302Z   buildx: Docker Buildx (Docker Inc.)
+2026-11-07T19:04:51.2804730Z     Version:  v0.38.1
+2026-11-07T19:04:51.2805232Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2026-11-07T19:04:51.2805706Z   compose: Docker Compose (Docker Inc.)
+2026-11-07T19:04:51.2806191Z     Version:  v2.38.2
+2026-11-07T19:04:51.2806646Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2026-11-07T19:04:51.2806960Z 
+2026-11-07T19:04:51.2807075Z Server:
+2026-11-07T19:04:51.2807536Z  Containers: 0
+2026-11-07T19:04:51.2807986Z   Running: 0
+2026-11-07T19:04:51.2808407Z   Paused: 0
+2026-11-07T19:04:51.2808755Z   Stopped: 0
+2026-11-07T19:04:51.2809063Z  Images: 6
+2026-11-07T19:04:51.2809920Z  Server Version: 28.0.4
+2026-11-07T19:04:51.2810305Z  Storage Driver: overlay2
+2026-11-07T19:04:51.2810713Z   Backing Filesystem: extfs
+2026-11-07T19:04:51.2811129Z   Supports d_type: true
+2026-11-07T19:04:51.2811504Z   Using metacopy: false
+2026-11-07T19:04:51.2811916Z   Native Overlay Diff: false
+2026-11-07T19:04:51.2812542Z   userxattr: false
+2026-11-07T19:04:51.2812926Z  Logging Driver: json-file
+2026-11-07T19:04:51.2813426Z  Cgroup Driver: systemd
+2026-11-07T19:04:51.2813799Z  Cgroup Version: 2
+2026-11-07T19:04:51.2814200Z  Plugins:
+2026-11-07T19:04:51.2815036Z   Volume: local
+2026-11-07T19:04:51.2815460Z   Network: bridge host ipvlan macvlan null overlay
+2026-11-07T19:04:51.2816192Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2026-11-07T19:04:51.2816843Z  Swarm: inactive
+2026-11-07T19:04:51.2817288Z  Runtimes: io.containerd.runc.v2 runc
+2026-11-07T19:04:51.2817806Z  Default Runtime: runc
+2026-11-07T19:04:51.2818174Z  Init Binary: docker-init
+2026-11-07T19:04:51.2818787Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-07T19:04:51.2819665Z  runc version: v1.5.2-0-g29dd3dc2
+2026-11-07T19:04:51.2820422Z  init version: de40ad0
+2026-11-07T19:04:51.2820941Z  Security Options:
+2026-11-07T19:04:51.2821589Z   apparmor
+2026-11-07T19:04:51.2822286Z   seccomp
+2026-11-07T19:04:51.2822867Z    Profile: builtin
+2026-11-07T19:04:51.2823313Z   cgroupns
+2026-11-07T19:04:51.2823785Z  Kernel Version: 7.0.0-1017-azure
+2026-11-07T19:04:51.2824445Z  Operating System: Ubuntu 24.04.5 LTS
+2026-11-07T19:04:51.2825286Z  OSType: linux
+2026-11-07T19:04:51.2825967Z  Architecture: x86_64
+2026-11-07T19:04:51.2826591Z  CPUs: 4
+2026-11-07T19:04:51.2827296Z  Total Memory: 15.61GiB
+2026-11-07T19:04:51.2828039Z  Name: runnervm7aw5e
+2026-11-07T19:04:51.2828789Z  ID: aeba5083-36f4-4ab3-a6cd-5185eccc7a63
+2026-11-07T19:04:51.2829757Z  Docker Root Dir: /var/lib/docker
+2026-11-07T19:04:51.2830295Z  Debug Mode: false
+2026-11-07T19:04:51.2830863Z  Username: githubactions
+2026-11-07T19:04:51.2831382Z  Experimental: false
+2026-11-07T19:04:51.2831865Z  Insecure Registries:
+2026-11-07T19:04:51.2837948Z   ::1/128
+2026-11-07T19:04:51.2838379Z   127.0.0.0/8
+2026-11-07T19:04:51.2838835Z  Live Restore Enabled: false
+2026-11-07T19:04:51.2839085Z 
+2026-11-07T19:04:51.2840194Z ##[endgroup]
+2026-11-07T19:04:51.2840875Z ##[group]Proxy configuration
+2026-11-07T19:04:51.2841271Z No proxy configuration found
+2026-11-07T19:04:51.2841959Z ##[endgroup]
+2026-11-07T19:04:51.3875557Z ##[group]Buildx version
+2026-11-07T19:04:51.3894630Z [command]/usr/bin/docker buildx version
+2026-11-07T19:04:51.4463416Z github.com/docker/buildx v0.38.1 0dbe87f36ed472fe36b6796c3f70b4210a731fc5
+2026-11-07T19:04:51.4486661Z ##[endgroup]
+2026-11-07T19:04:51.4487331Z ##[group]Builder info
+2026-11-07T19:04:51.5948673Z {
+2026-11-07T19:04:51.5949309Z   "nodes": [
+2026-11-07T19:04:51.5950184Z     {
+2026-11-07T19:04:51.5950598Z       "name": "default",
+2026-11-07T19:04:51.5951091Z       "endpoint": "default",
+2026-11-07T19:04:51.5951568Z       "status": "running",
+2026-11-07T19:04:51.5951954Z       "buildkit": "v0.20.2",
+2026-11-07T19:04:51.5952495Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+2026-11-07T19:04:51.5953030Z       "features": {
+2026-11-07T19:04:51.5953499Z         "Automatically load images to the Docker Engine image store": true,
+2026-11-07T19:04:51.5954053Z         "Cache export": true,
+2026-11-07T19:04:51.5954484Z         "Direct push": true,
+2026-11-07T19:04:51.5954915Z         "Docker exporter": true,
+2026-11-07T19:04:51.5955474Z         "Multi-platform build": true,
+2026-11-07T19:04:51.5956053Z         "OCI exporter": true,
+2026-11-07T19:04:51.5956644Z         "Prefer image digest": true
+2026-11-07T19:04:51.5957169Z       },
+2026-11-07T19:04:51.5957651Z       "labels": {
+2026-11-07T19:04:51.5958613Z         "org.mobyproject.buildkit.worker.moby.host-gateway-ip": "172.17.0.1"
+2026-11-07T19:04:51.5959654Z       }
+2026-11-07T19:04:51.5960200Z     }
+2026-11-07T19:04:51.5960758Z   ],
+2026-11-07T19:04:51.5961262Z   "name": "default",
+2026-11-07T19:04:51.5961814Z   "driver": "docker"
+2026-11-07T19:04:51.5962323Z }
+2026-11-07T19:04:51.5963758Z ##[endgroup]
+2026-11-07T19:04:51.7338806Z [command]/usr/bin/docker buildx build --iidfile /home/runner/work/_temp/docker-actions-toolkit-0YVzQh/build-iidfile-37aca73eaf.txt --tag secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06 --load --metadata-file /home/runner/work/_temp/docker-actions-toolkit-0YVzQh/build-metadata-69f20c718a.json .
+2026-11-07T19:04:52.1080424Z #0 building with "default" instance using docker driver
+2026-11-07T19:04:52.1081280Z 
+2026-11-07T19:04:52.1081786Z #1 [internal] load build definition from Dockerfile
+2026-11-07T19:04:52.1082540Z #1 transferring dockerfile: 245B 0.1s done
+2026-11-07T19:04:52.2655450Z #1 DONE 0.1s
+2026-11-07T19:04:52.2655816Z 
+2026-11-07T19:04:52.2656382Z #2 [internal] load metadata for docker.io/library/python:3.10-slim
+2026-11-07T19:04:52.5806818Z #2 ...
+2026-11-07T19:04:52.5807305Z 
+2026-11-07T19:04:52.5807559Z #3 [auth] library/python:pull token for registry-1.docker.io
+2026-11-07T19:04:52.5808073Z #3 DONE 0.0s
+2026-11-07T19:04:52.7301806Z 
+2026-11-07T19:04:52.7302754Z #2 [internal] load metadata for docker.io/library/python:3.10-slim
+2026-11-07T19:04:53.0643253Z #2 DONE 0.9s
+2026-11-07T19:04:53.1998406Z 
+2026-11-07T19:04:53.1999073Z #4 [internal] load .dockerignore
+2026-11-07T19:04:53.1999721Z #4 transferring context: 2B done
+2026-11-07T19:04:53.2000322Z #4 DONE 0.0s
+2026-11-07T19:04:53.2000578Z 
+2026-11-07T19:04:53.2000714Z #5 [internal] load build context
+2026-11-07T19:04:53.2001105Z #5 transferring context: 4.68kB done
+2026-11-07T19:04:53.2001465Z #5 DONE 0.0s
+2026-11-07T19:04:53.2001650Z 
+2026-11-07T19:04:53.2002095Z #6 [1/5] FROM docker.io/library/python:3.10-slim@sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d
+2026-11-07T19:04:53.2003002Z #6 resolve docker.io/library/python:3.10-slim@sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d done
+2026-11-07T19:04:53.2003735Z #6 sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d 10.37kB / 10.37kB done
+2026-11-07T19:04:53.2004429Z #6 sha256:7b6bd969dda3ecfca0655524e338b57a8b8cd692a9362e3d55b5a3ef49b07256 1.75kB / 1.75kB done
+2026-11-07T19:04:53.2005103Z #6 sha256:0f61d91517f6602b9d99096696845f54ddfe01a52029b4f55fdddb277ebe034a 5.49kB / 5.49kB done
+2026-11-07T19:04:53.2005755Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0B / 29.84MB 0.1s
+2026-11-07T19:04:53.2006542Z #6 sha256:1189ef607cc64ff2e2a214c12e5f46402dc316a1a62cc5adb7071616882df7ee 1.29MB / 1.29MB 0.1s done
+2026-11-07T19:04:53.2007213Z #6 sha256:79f4247a2db52342f23c9ff6911633949443ca83b454d185a05ed6fc8689ffca 0B / 13.92MB 0.1s
+2026-11-07T19:04:53.2007842Z #6 sha256:cc1cbe171e30bea48715fd96ecf842ad9fae425ce5a18917bee871684eb836f1 0B / 249B 0.1s
+2026-11-07T19:04:53.3991416Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 0.3s
+2026-11-07T19:04:53.3992561Z #6 sha256:79f4247a2db52342f23c9ff6911633949443ca83b454d185a05ed6fc8689ffca 13.92MB / 13.92MB 0.3s
+2026-11-07T19:04:53.3993335Z #6 sha256:cc1cbe171e30bea48715fd96ecf842ad9fae425ce5a18917bee871684eb836f1 249B / 249B 0.3s
+2026-11-07T19:04:53.6997649Z #6 sha256:cc1cbe171e30bea48715fd96ecf842ad9fae425ce5a18917bee871684eb836f1 249B / 249B 0.3s done
+2026-11-07T19:04:53.8995102Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 0.6s done
+2026-11-07T19:04:53.8996565Z #6 sha256:79f4247a2db52342f23c9ff6911633949443ca83b454d185a05ed6fc8689ffca 13.92MB / 13.92MB 0.6s done
+2026-11-07T19:04:54.0705076Z #6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0.1s
+2026-11-07T19:04:54.7648125Z #6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0.7s done
+2026-11-07T19:04:54.7649901Z #6 extracting sha256:1189ef607cc64ff2e2a214c12e5f46402dc316a1a62cc5adb7071616882df7ee
+2026-11-07T19:04:54.9930359Z #6 extracting sha256:1189ef607cc64ff2e2a214c12e5f46402dc316a1a62cc5adb7071616882df7ee 0.1s done
+2026-11-07T19:04:55.7353553Z #6 extracting sha256:79f4247a2db52342f23c9ff6911633949443ca83b454d185a05ed6fc8689ffca
+2026-11-07T19:04:56.3843884Z #6 extracting sha256:79f4247a2db52342f23c9ff6911633949443ca83b454d185a05ed6fc8689ffca 0.5s done
+2026-11-07T19:04:56.5745317Z #6 extracting sha256:cc1cbe171e30bea48715fd96ecf842ad9fae425ce5a18917bee871684eb836f1
+2026-11-07T19:04:56.7921649Z #6 extracting sha256:cc1cbe171e30bea48715fd96ecf842ad9fae425ce5a18917bee871684eb836f1 done
+2026-11-07T19:04:56.7922928Z #6 DONE 3.5s
+2026-11-07T19:04:56.7923805Z 
+2026-11-07T19:04:56.7924063Z #7 [2/5] WORKDIR /app
+2026-11-07T19:04:56.7924568Z #7 DONE 0.0s
+2026-11-07T19:04:56.7924818Z 
+2026-11-07T19:04:56.7925172Z #8 [3/5] COPY requirements.txt .
+2026-11-07T19:04:56.7930266Z #8 DONE 0.0s
+2026-11-07T19:04:56.7930600Z 
+2026-11-07T19:04:56.7930937Z #9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+2026-11-07T19:04:58.0006594Z #9 1.358 Collecting flask
+2026-11-07T19:04:58.1397212Z #9 1.400   Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+2026-11-07T19:04:58.1398897Z #9 1.415      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.4/103.4 kB 8.0 MB/s eta 0:00:00
+2026-11-07T19:04:58.1399795Z #9 1.498 Collecting pytest
+2026-11-07T19:04:58.3030947Z #9 1.508   Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+2026-11-07T19:04:58.3032527Z #9 1.522      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 411.8/411.8 kB 35.4 MB/s eta 0:00:00
+2026-11-07T19:04:58.3033275Z #9 1.661 Collecting markupsafe>=2.1.1
+2026-11-07T19:04:58.4199631Z #9 1.672   Downloading markupsafe-3.0.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+2026-11-07T19:04:58.4200618Z #9 1.694 Collecting blinker>=1.9.0
+2026-11-07T19:04:58.4201358Z #9 1.704   Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2026-11-07T19:04:58.4201797Z #9 1.725 Collecting itsdangerous>=2.2.0
+2026-11-07T19:04:58.4202314Z #9 1.735   Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2026-11-07T19:04:58.4202744Z #9 1.778 Collecting werkzeug>=3.1.0
+2026-11-07T19:04:58.5200751Z #9 1.790   Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+2026-11-07T19:04:58.5202087Z #9 1.792      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 228.7/228.7 kB 487.1 MB/s eta 0:00:00
+2026-11-07T19:04:58.5202519Z #9 1.821 Collecting jinja2>=3.1.2
+2026-11-07T19:04:58.5202921Z #9 1.831   Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-07T19:04:58.5203471Z #9 1.833      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 442.2 MB/s eta 0:00:00
+2026-11-07T19:04:58.5203904Z #9 1.868 Collecting click>=8.1.3
+2026-11-07T19:04:58.5204375Z #9 1.878   Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-07T19:04:58.6261027Z #9 1.880      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 464.9 MB/s eta 0:00:00
+2026-11-07T19:04:58.6261755Z #9 1.913 Collecting iniconfig>=2
+2026-11-07T19:04:58.6262571Z #9 1.923   Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-07T19:04:58.6263158Z #9 1.947 Collecting exceptiongroup>=1
+2026-11-07T19:04:58.6263690Z #9 1.957   Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+2026-11-07T19:04:58.6264289Z #9 1.984 Collecting pluggy<2,>=1.6
+2026-11-07T19:04:58.7464255Z #9 1.994   Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-07T19:04:58.7465038Z #9 2.057 Collecting tomli>=2
+2026-11-07T19:04:58.7465970Z #9 2.067   Downloading tomli-2.5.0-py3-none-any.whl (14 kB)
+2026-11-07T19:04:58.7466923Z #9 2.069 Requirement already satisfied: packaging>=24 in /usr/local/lib/python3.10/site-packages (from pytest->-r requirements.txt (line 2)) (26.3)
+2026-11-07T19:04:58.7467646Z #9 2.104 Collecting pygments>=2.15
+2026-11-07T19:04:58.9255481Z #9 2.115   Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-07T19:04:58.9256940Z #9 2.128      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 110.2 MB/s eta 0:00:00
+2026-11-07T19:04:58.9257450Z #9 2.169 Collecting typing-extensions>=4.6.0
+2026-11-07T19:04:58.9257910Z #9 2.180   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-07T19:04:58.9258548Z #9 2.182      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 323.8 MB/s eta 0:00:00
+2026-11-07T19:04:58.9259688Z #9 2.283 Installing collected packages: typing-extensions, tomli, pygments, pluggy, markupsafe, itsdangerous, iniconfig, click, blinker, werkzeug, jinja2, exceptiongroup, pytest, flask
+2026-11-07T19:04:59.9355819Z #9 3.293 Successfully installed blinker-1.9.0 click-8.5.1 exceptiongroup-1.3.1 flask-3.1.3 iniconfig-2.3.1 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 pluggy-1.7.0 pygments-2.21.0 pytest-9.2.0 tomli-2.5.0 typing-extensions-4.16.0 werkzeug-3.1.9
+2026-11-07T19:05:00.0361965Z #9 3.294 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2026-11-07T19:05:00.0363718Z #9 3.393 
+2026-11-07T19:05:00.0364235Z #9 3.393 [notice] A new release of pip is available: 23.0.1 -> 26.3
+2026-11-07T19:05:00.0365148Z #9 3.393 [notice] To update, run: pip install --upgrade pip
+2026-11-07T19:05:00.2697544Z #9 DONE 3.6s
+2026-11-07T19:05:00.4332824Z 
+2026-11-07T19:05:00.4333943Z #10 [5/5] COPY baseline_secure_coding_api.py .
+2026-11-07T19:05:00.4334478Z #10 DONE 0.0s
+2026-11-07T19:05:00.4334657Z 
+2026-11-07T19:05:00.4335031Z #11 exporting to image
+2026-11-07T19:05:00.4335452Z #11 exporting layers
+2026-11-07T19:05:01.0126950Z #11 exporting layers 0.7s done
+2026-11-07T19:05:01.0385610Z #11 writing image sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24 done
+2026-11-07T19:05:01.0386829Z #11 naming to docker.io/library/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06 done
+2026-11-07T19:05:01.0387871Z #11 DONE 0.7s
+2026-11-07T19:05:01.0388152Z 
+2026-11-07T19:05:01.0388598Z #12 resolving provenance for metadata file
+2026-11-07T19:05:01.0389137Z #12 DONE 0.0s
+2026-11-07T19:05:01.0451994Z ##[group]ImageID
+2026-11-07T19:05:01.0452717Z sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24
+2026-11-07T19:05:01.0453915Z ##[endgroup]
+2026-11-07T19:05:01.0454719Z ##[group]Digest
+2026-11-07T19:05:01.0455262Z sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24
+2026-11-07T19:05:01.0456142Z ##[endgroup]
+2026-11-07T19:05:01.0456754Z ##[group]Metadata
+2026-11-07T19:05:01.0465796Z ::stop-commands::***
+2026-11-07T19:05:01.0466426Z {
+2026-11-07T19:05:01.0466825Z   "buildx.build.provenance": {
+2026-11-07T19:05:01.0467375Z     "builder": {
+2026-11-07T19:05:01.0467847Z       "id": ""
+2026-11-07T19:05:01.0468192Z     },
+2026-11-07T19:05:01.0468707Z     "buildType": "https://mobyproject.org/buildkit@v1",
+2026-11-07T19:05:01.0469456Z     "materials": [
+2026-11-07T19:05:01.0469839Z       {
+2026-11-07T19:05:01.0470427Z         "uri": "pkg:docker/python@3.10-slim?platform=linux%2Famd64",
+2026-11-07T19:05:01.0471091Z         "digest": {
+2026-11-07T19:05:01.0471970Z           "sha256": "6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d"
+2026-11-07T19:05:01.0472662Z         }
+2026-11-07T19:05:01.0473067Z       }
+2026-11-07T19:05:01.0473461Z     ],
+2026-11-07T19:05:01.0473840Z     "invocation": {
+2026-11-07T19:05:01.0474226Z       "configSource": {
+2026-11-07T19:05:01.0474715Z         "entryPoint": "Dockerfile"
+2026-11-07T19:05:01.0475236Z       },
+2026-11-07T19:05:01.0475658Z       "parameters": {
+2026-11-07T19:05:01.0476065Z         "frontend": "dockerfile.v0",
+2026-11-07T19:05:01.0476587Z         "locals": [
+2026-11-07T19:05:01.0476966Z           {
+2026-11-07T19:05:01.0477356Z             "name": "context"
+2026-11-07T19:05:01.0477892Z           },
+2026-11-07T19:05:01.0478415Z           {
+2026-11-07T19:05:01.0478851Z             "name": "dockerfile"
+2026-11-07T19:05:01.0479569Z           }
+2026-11-07T19:05:01.0479995Z         ]
+2026-11-07T19:05:01.0480460Z       },
+2026-11-07T19:05:01.0480883Z       "environment": {
+2026-11-07T19:05:01.0481330Z         "platform": "linux/amd64"
+2026-11-07T19:05:01.0481908Z       }
+2026-11-07T19:05:01.0482283Z     }
+2026-11-07T19:05:01.0482766Z   },
+2026-11-07T19:05:01.0483284Z   "buildx.build.ref": "default/default/v1w0blykp89c7029j2nswzq0e",
+2026-11-07T19:05:01.0484419Z   "containerimage.config.digest": "sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24",
+2026-11-07T19:05:01.0485710Z   "containerimage.digest": "sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24",
+2026-11-07T19:05:01.0486888Z   "image.name": "docker.io/library/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06"
+2026-11-07T19:05:01.0487820Z }
+2026-11-07T19:05:01.0488956Z ::***::
+2026-11-07T19:05:01.0490212Z ##[endgroup]
+2026-11-07T19:05:01.0491268Z ##[group]Reference
+2026-11-07T19:05:01.0491939Z default/default/v1w0blykp89c7029j2nswzq0e
+2026-11-07T19:05:01.0492834Z ##[endgroup]
+2026-11-07T19:05:01.0493714Z ##[group]Check build summary support
+2026-11-07T19:05:01.0494885Z Build summary supported!
+2026-11-07T19:05:01.0495789Z ##[endgroup]
+2026-11-07T19:05:01.0607027Z ##[group]Run docker run -d \
+2026-11-07T19:05:01.0607585Z [36;1mdocker run -d \[0m
+2026-11-07T19:05:01.0608042Z [36;1m  --name secure-coding-api \[0m
+2026-11-07T19:05:01.0608426Z [36;1m  -p 5001:5001 \[0m
+2026-11-07T19:05:01.0608964Z [36;1m  secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06[0m
+2026-11-07T19:05:01.0627214Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:05:01.0627674Z env:
+2026-11-07T19:05:01.0628130Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:01.0628712Z ##[endgroup]
+2026-11-07T19:05:01.0951914Z 8efaca6a31a41de145596d373cd404e0c0100e200044a61d78bd032623e12627
+2026-11-07T19:05:01.2616050Z ##[group]Run sleep 5
+2026-11-07T19:05:01.2616603Z [36;1msleep 5[0m
+2026-11-07T19:05:01.2617211Z [36;1mcurl --fail http://127.0.0.1:5001/[0m
+2026-11-07T19:05:01.2637255Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:05:01.2637809Z env:
+2026-11-07T19:05:01.2638556Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:01.2639582Z ##[endgroup]
+2026-11-07T19:05:06.2774731Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-11-07T19:05:06.2775586Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-11-07T19:05:06.2776034Z 
+2026-11-07T19:05:06.2797344Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-07T19:05:06.2798231Z 100   252  100   252    0     0   104k      0 --:--:-- --:--:-- --:--:--  123k
+2026-11-07T19:05:06.2805007Z {
+2026-11-07T19:05:06.2805469Z   "endpoints": [
+2026-11-07T19:05:06.2805861Z     "POST /login",
+2026-11-07T19:05:06.2806420Z     "POST /logout",
+2026-11-07T19:05:06.2806813Z     "GET /me",
+2026-11-07T19:05:06.2807252Z     "GET /students/<student_id>/profile",
+2026-11-07T19:05:06.2807816Z     "POST /grades/update",
+2026-11-07T19:05:06.2808264Z     "GET /grades/<student_id>",
+2026-11-07T19:05:06.2808951Z     "GET /files?path=<name>"
+2026-11-07T19:05:06.2809622Z   ],
+2026-11-07T19:05:06.2810073Z   "message": "Baseline Secure Coding API"
+2026-11-07T19:05:06.2810601Z }
+2026-11-07T19:05:06.2857633Z ##[group]Run docker stop secure-coding-api
+2026-11-07T19:05:06.2858167Z [36;1mdocker stop secure-coding-api[0m
+2026-11-07T19:05:06.2858578Z [36;1mdocker rm secure-coding-api[0m
+2026-11-07T19:05:06.2872314Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:05:06.2872687Z env:
+2026-11-07T19:05:06.2873170Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:06.2873648Z ##[endgroup]
+2026-11-07T19:05:06.4387894Z secure-coding-api
+2026-11-07T19:05:06.4602635Z secure-coding-api
+2026-11-07T19:05:06.4676480Z ##[group]Run docker/login-action@v4
+2026-11-07T19:05:06.4676863Z with:
+2026-11-07T19:05:06.4677153Z   registry: ghcr.io
+2026-11-07T19:05:06.4677550Z   username: LinoxVaz
+2026-11-07T19:05:06.4680349Z   password: ***
+2026-11-07T19:05:06.4680688Z   logout: true
+2026-11-07T19:05:06.4681012Z env:
+2026-11-07T19:05:06.4681488Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:06.4681990Z ##[endgroup]
+2026-11-07T19:05:06.6688311Z Logging into ghcr.io...
+2026-11-07T19:05:07.2880699Z Login Succeeded!
+2026-11-07T19:05:07.3058706Z ##[group]Run docker/build-push-action@v7
+2026-11-07T19:05:07.3059099Z with:
+2026-11-07T19:05:07.3059645Z   context: .
+2026-11-07T19:05:07.3059944Z   push: true
+2026-11-07T19:05:07.3060542Z   tags: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06
+2026-11-07T19:05:07.3061119Z   load: false
+2026-11-07T19:05:07.3061425Z   no-cache: false
+2026-11-07T19:05:07.3061753Z   pull: false
+2026-11-07T19:05:07.3063941Z   github-token: ***
+2026-11-07T19:05:07.3064257Z env:
+2026-11-07T19:05:07.3064674Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:07.3065149Z ##[endgroup]
+2026-11-07T19:05:07.5520178Z ##[group]GitHub Actions runtime token ACs
+2026-11-07T19:05:07.5528108Z refs/heads/main: read/write
+2026-11-07T19:05:07.5529501Z ##[endgroup]
+2026-11-07T19:05:07.5530425Z ##[group]Docker info
+2026-11-07T19:05:07.5594668Z [command]/usr/bin/docker version
+2026-11-07T19:05:07.6242258Z Client: Docker Engine - Community
+2026-11-07T19:05:07.6243271Z  Version:           28.0.4
+2026-11-07T19:05:07.6243874Z  API version:       1.48
+2026-11-07T19:05:07.6244522Z  Go version:        go1.23.7
+2026-11-07T19:05:07.6245082Z  Git commit:        b8034c0
+2026-11-07T19:05:07.6245662Z  Built:             Tue Mar 25 15:07:16 2025
+2026-11-07T19:05:07.6246335Z  OS/Arch:           linux/amd64
+2026-11-07T19:05:07.6246887Z  Context:           default
+2026-11-07T19:05:07.6247304Z 
+2026-11-07T19:05:07.6247657Z Server: Docker Engine - Community
+2026-11-07T19:05:07.6248241Z  Engine:
+2026-11-07T19:05:07.6248747Z   Version:          28.0.4
+2026-11-07T19:05:07.6249558Z   API version:      1.48 (minimum version 1.24)
+2026-11-07T19:05:07.6250297Z   Go version:       go1.23.7
+2026-11-07T19:05:07.6250960Z   Git commit:       6430e49
+2026-11-07T19:05:07.6251545Z   Built:            Tue Mar 25 15:07:16 2025
+2026-11-07T19:05:07.6254135Z   OS/Arch:          linux/amd64
+2026-11-07T19:05:07.6254919Z   Experimental:     false
+2026-11-07T19:05:07.6255510Z  containerd:
+2026-11-07T19:05:07.6256106Z   Version:          v2.4.2
+2026-11-07T19:05:07.6256739Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-07T19:05:07.6257408Z  runc:
+2026-11-07T19:05:07.6257944Z   Version:          1.5.2
+2026-11-07T19:05:07.6258489Z   GitCommit:        v1.5.2-0-g29dd3dc2
+2026-11-07T19:05:07.6259139Z  docker-init:
+2026-11-07T19:05:07.6259803Z   Version:          0.19.0
+2026-11-07T19:05:07.6260475Z   GitCommit:        de40ad0
+2026-11-07T19:05:07.6281647Z [command]/usr/bin/docker info
+2026-11-07T19:05:07.6909073Z Client: Docker Engine - Community
+2026-11-07T19:05:07.6912707Z  Version:    28.0.4
+2026-11-07T19:05:07.6913370Z  Context:    default
+2026-11-07T19:05:07.6914183Z  Debug Mode: false
+2026-11-07T19:05:07.6915303Z  Plugins:
+2026-11-07T19:05:07.6915658Z   buildx: Docker Buildx (Docker Inc.)
+2026-11-07T19:05:07.6916045Z     Version:  v0.38.1
+2026-11-07T19:05:07.6916451Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2026-11-07T19:05:07.6916945Z   compose: Docker Compose (Docker Inc.)
+2026-11-07T19:05:07.6917319Z     Version:  v2.38.2
+2026-11-07T19:05:07.6917674Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2026-11-07T19:05:07.6917942Z 
+2026-11-07T19:05:07.6918153Z Server:
+2026-11-07T19:05:07.6918432Z  Containers: 0
+2026-11-07T19:05:07.6918709Z   Running: 0
+2026-11-07T19:05:07.6919013Z   Paused: 0
+2026-11-07T19:05:07.6919427Z   Stopped: 0
+2026-11-07T19:05:07.6919715Z  Images: 7
+2026-11-07T19:05:07.6920066Z  Server Version: 28.0.4
+2026-11-07T19:05:07.6920364Z  Storage Driver: overlay2
+2026-11-07T19:05:07.6920719Z   Backing Filesystem: extfs
+2026-11-07T19:05:07.6921104Z   Supports d_type: true
+2026-11-07T19:05:07.6921418Z   Using metacopy: false
+2026-11-07T19:05:07.6921775Z   Native Overlay Diff: false
+2026-11-07T19:05:07.6922101Z   userxattr: false
+2026-11-07T19:05:07.6922499Z  Logging Driver: json-file
+2026-11-07T19:05:07.6922820Z  Cgroup Driver: systemd
+2026-11-07T19:05:07.6923150Z  Cgroup Version: 2
+2026-11-07T19:05:07.6923655Z  Plugins:
+2026-11-07T19:05:07.6923957Z   Volume: local
+2026-11-07T19:05:07.6924354Z   Network: bridge host ipvlan macvlan null overlay
+2026-11-07T19:05:07.6925074Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2026-11-07T19:05:07.6925591Z  Swarm: inactive
+2026-11-07T19:05:07.6925926Z  Runtimes: io.containerd.runc.v2 runc
+2026-11-07T19:05:07.6926286Z  Default Runtime: runc
+2026-11-07T19:05:07.6926621Z  Init Binary: docker-init
+2026-11-07T19:05:07.6927048Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-07T19:05:07.6927566Z  runc version: v1.5.2-0-g29dd3dc2
+2026-11-07T19:05:07.6927964Z  init version: de40ad0
+2026-11-07T19:05:07.6928285Z  Security Options:
+2026-11-07T19:05:07.6928590Z   apparmor
+2026-11-07T19:05:07.6928971Z   seccomp
+2026-11-07T19:05:07.6929518Z    Profile: builtin
+2026-11-07T19:05:07.6929886Z   cgroupns
+2026-11-07T19:05:07.6930199Z  Kernel Version: 7.0.0-1017-azure
+2026-11-07T19:05:07.6930577Z  Operating System: Ubuntu 24.04.5 LTS
+2026-11-07T19:05:07.6931011Z  OSType: linux
+2026-11-07T19:05:07.6931392Z  Architecture: x86_64
+2026-11-07T19:05:07.6931804Z  CPUs: 4
+2026-11-07T19:05:07.6932143Z  Total Memory: 15.61GiB
+2026-11-07T19:05:07.6932561Z  Name: runnervm7aw5e
+2026-11-07T19:05:07.6933013Z  ID: aeba5083-36f4-4ab3-a6cd-5185eccc7a63
+2026-11-07T19:05:07.6933541Z  Docker Root Dir: /var/lib/docker
+2026-11-07T19:05:07.6934120Z  Debug Mode: false
+2026-11-07T19:05:07.6934500Z  Username: githubactions
+2026-11-07T19:05:07.6934969Z  Experimental: false
+2026-11-07T19:05:07.6935436Z  Insecure Registries:
+2026-11-07T19:05:07.6935831Z   ::1/128
+2026-11-07T19:05:07.6936241Z   127.0.0.0/8
+2026-11-07T19:05:07.6936595Z  Live Restore Enabled: false
+2026-11-07T19:05:07.6936879Z 
+2026-11-07T19:05:07.6937439Z ##[endgroup]
+2026-11-07T19:05:07.6938107Z ##[group]Proxy configuration
+2026-11-07T19:05:07.6938628Z No proxy configuration found
+2026-11-07T19:05:07.6939789Z ##[endgroup]
+2026-11-07T19:05:07.7555416Z ##[group]Buildx version
+2026-11-07T19:05:07.7583601Z [command]/usr/bin/docker buildx version
+2026-11-07T19:05:07.8131035Z github.com/docker/buildx v0.38.1 0dbe87f36ed472fe36b6796c3f70b4210a731fc5
+2026-11-07T19:05:07.8152388Z ##[endgroup]
+2026-11-07T19:05:07.8152999Z ##[group]Builder info
+2026-11-07T19:05:07.8904249Z {
+2026-11-07T19:05:07.8904834Z   "nodes": [
+2026-11-07T19:05:07.8905157Z     {
+2026-11-07T19:05:07.8905458Z       "name": "default",
+2026-11-07T19:05:07.8905852Z       "endpoint": "default",
+2026-11-07T19:05:07.8906224Z       "status": "running",
+2026-11-07T19:05:07.8906668Z       "buildkit": "v0.20.2",
+2026-11-07T19:05:07.8907219Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+2026-11-07T19:05:07.8907719Z       "features": {
+2026-11-07T19:05:07.8908502Z         "Automatically load images to the Docker Engine image store": true,
+2026-11-07T19:05:07.8909099Z         "Cache export": true,
+2026-11-07T19:05:07.8909631Z         "Direct push": true,
+2026-11-07T19:05:07.8910044Z         "Docker exporter": true,
+2026-11-07T19:05:07.8910503Z         "Multi-platform build": true,
+2026-11-07T19:05:07.8910898Z         "OCI exporter": true,
+2026-11-07T19:05:07.8911234Z         "Prefer image digest": true
+2026-11-07T19:05:07.8911626Z       },
+2026-11-07T19:05:07.8912146Z       "labels": {
+2026-11-07T19:05:07.8912697Z         "org.mobyproject.buildkit.worker.moby.host-gateway-ip": "172.17.0.1"
+2026-11-07T19:05:07.8913275Z       }
+2026-11-07T19:05:07.8913570Z     }
+2026-11-07T19:05:07.8913882Z   ],
+2026-11-07T19:05:07.8914202Z   "name": "default",
+2026-11-07T19:05:07.8914649Z   "driver": "docker",
+2026-11-07T19:05:07.8915188Z   "lastActivity": "2026-11-07T19:04:51.000Z"
+2026-11-07T19:05:07.8915676Z }
+2026-11-07T19:05:07.8916324Z ##[endgroup]
+2026-11-07T19:05:08.0291496Z [command]/usr/bin/docker buildx build --iidfile /home/runner/work/_temp/docker-actions-toolkit-MVY6kB/build-iidfile-0df0e5b4b8.txt --tag ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06 --metadata-file /home/runner/work/_temp/docker-actions-toolkit-MVY6kB/build-metadata-5d8b99888b.json --push .
+2026-11-07T19:05:08.2258360Z #0 building with "default" instance using docker driver
+2026-11-07T19:05:08.2258762Z 
+2026-11-07T19:05:08.2259023Z #1 [internal] load build definition from Dockerfile
+2026-11-07T19:05:08.2259883Z #1 transferring dockerfile: 245B done
+2026-11-07T19:05:08.2260275Z #1 DONE 0.0s
+2026-11-07T19:05:08.2260480Z 
+2026-11-07T19:05:08.2260794Z #2 [internal] load metadata for docker.io/library/python:3.10-slim
+2026-11-07T19:05:08.2261306Z #2 DONE 0.1s
+2026-11-07T19:05:08.4114088Z 
+2026-11-07T19:05:08.4114986Z #3 [internal] load .dockerignore
+2026-11-07T19:05:08.4115659Z #3 transferring context: 2B done
+2026-11-07T19:05:08.4115993Z #3 DONE 0.0s
+2026-11-07T19:05:08.4116193Z 
+2026-11-07T19:05:08.4116589Z #4 [1/5] FROM docker.io/library/python:3.10-slim@sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d
+2026-11-07T19:05:08.4117237Z #4 DONE 0.0s
+2026-11-07T19:05:08.4117376Z 
+2026-11-07T19:05:08.4117532Z #5 [internal] load build context
+2026-11-07T19:05:08.4117911Z #5 transferring context: 86B done
+2026-11-07T19:05:08.4118238Z #5 DONE 0.0s
+2026-11-07T19:05:08.4118390Z 
+2026-11-07T19:05:08.4118556Z #6 [3/5] COPY requirements.txt .
+2026-11-07T19:05:08.4118879Z #6 CACHED
+2026-11-07T19:05:08.4119040Z 
+2026-11-07T19:05:08.4119411Z #7 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+2026-11-07T19:05:08.4119909Z #7 CACHED
+2026-11-07T19:05:08.4120037Z 
+2026-11-07T19:05:08.4120184Z #8 [2/5] WORKDIR /app
+2026-11-07T19:05:08.4120503Z #8 CACHED
+2026-11-07T19:05:08.4120681Z 
+2026-11-07T19:05:08.4120820Z #9 [5/5] COPY baseline_secure_coding_api.py .
+2026-11-07T19:05:08.4121182Z #9 CACHED
+2026-11-07T19:05:08.4121328Z 
+2026-11-07T19:05:08.4121501Z #10 exporting to image
+2026-11-07T19:05:08.4121804Z #10 exporting layers done
+2026-11-07T19:05:08.4122294Z #10 writing image sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24 done
+2026-11-07T19:05:08.4123056Z #10 naming to ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06 done
+2026-11-07T19:05:08.4123644Z #10 DONE 0.0s
+2026-11-07T19:05:08.4123799Z 
+2026-11-07T19:05:08.4123984Z #11 resolving provenance for metadata file
+2026-11-07T19:05:08.4124319Z #11 DONE 0.0s
+2026-11-07T19:05:08.4124472Z 
+2026-11-07T19:05:08.4124879Z #12 pushing ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06 with docker
+2026-11-07T19:05:08.4446863Z #12 pushing layer 08613f141a84
+2026-11-07T19:05:08.5957767Z #12 pushing layer 72f5167fc28d
+2026-11-07T19:05:08.5958396Z #12 pushing layer 868b3cc887af
+2026-11-07T19:05:08.5958756Z #12 pushing layer 98881f00f52f
+2026-11-07T19:05:08.5959099Z #12 pushing layer 45360af7f983
+2026-11-07T19:05:08.5959994Z #12 pushing layer e117d9c82914
+2026-11-07T19:05:08.5960315Z #12 pushing layer a49f6dbcd8e9
+2026-11-07T19:05:08.5960698Z #12 pushing layer 15f1c8eb1ab1
+2026-11-07T19:05:09.0198035Z #12 pushing layer 868b3cc887af 512B / 12B 0.6s
+2026-11-07T19:05:09.1239124Z #12 pushing layer 08613f141a84 6.66kB / 4.56kB 0.6s
+2026-11-07T19:05:09.1240045Z #12 pushing layer 868b3cc887af 2.56kB / 12B 0.6s
+2026-11-07T19:05:09.3329919Z #12 pushing layer 72f5167fc28d 1.82MB / 22.09MB 0.9s
+2026-11-07T19:05:09.4435844Z #12 pushing layer 72f5167fc28d 4.17MB / 22.09MB 1.0s
+2026-11-07T19:05:09.5470860Z #12 pushing layer 72f5167fc28d 6.45MB / 22.09MB 1.1s
+2026-11-07T19:05:09.6513876Z #12 pushing layer 72f5167fc28d 8.76MB / 22.09MB 1.2s
+2026-11-07T19:05:09.7546514Z #12 pushing layer 72f5167fc28d 11.00MB / 22.09MB 1.3s
+2026-11-07T19:05:09.8618459Z #12 pushing layer 72f5167fc28d 13.53MB / 22.09MB 1.4s
+2026-11-07T19:05:10.0681185Z #12 pushing layer 72f5167fc28d 15.86MB / 22.09MB 1.5s
+2026-11-07T19:05:10.1760154Z #12 pushing layer 72f5167fc28d 21.41MB / 22.09MB 1.7s
+2026-11-07T19:05:10.2862609Z #12 pushing layer 72f5167fc28d 23.62MB / 22.09MB 1.8s
+2026-11-07T19:05:10.4065957Z #12 pushing layer 15f1c8eb1ab1 7.57MB / 78.82MB 2.0s
+2026-11-07T19:05:10.6404694Z #12 pushing layer 08613f141a84 2.2s done
+2026-11-07T19:05:10.6405416Z #12 pushing layer 868b3cc887af 2.1s done
+2026-11-07T19:05:10.6405845Z #12 pushing layer 98881f00f52f 2.1s done
+2026-11-07T19:05:10.6406256Z #12 pushing layer 15f1c8eb1ab1 13.03MB / 78.82MB 2.2s
+2026-11-07T19:05:10.8523945Z #12 pushing layer 15f1c8eb1ab1 18.51MB / 78.82MB 2.4s
+2026-11-07T19:05:11.0706165Z #12 pushing layer 15f1c8eb1ab1 23.92MB / 78.82MB 2.6s
+2026-11-07T19:05:11.1714675Z #12 pushing layer 15f1c8eb1ab1 28.18MB / 78.82MB 2.7s
+2026-11-07T19:05:11.2761193Z #12 pushing layer 15f1c8eb1ab1 32.44MB / 78.82MB 2.8s
+2026-11-07T19:05:11.5033260Z #12 pushing layer 15f1c8eb1ab1 37.39MB / 78.82MB 3.1s
+2026-11-07T19:05:11.7295722Z #12 pushing layer 15f1c8eb1ab1 42.94MB / 78.82MB 3.3s
+2026-11-07T19:05:11.8382972Z #12 pushing layer 72f5167fc28d 3.4s done
+2026-11-07T19:05:11.9433372Z #12 pushing layer 15f1c8eb1ab1 47.90MB / 78.82MB 3.5s
+2026-11-07T19:05:12.1786223Z #12 pushing layer 15f1c8eb1ab1 53.89MB / 78.82MB 3.7s
+2026-11-07T19:05:12.3911164Z #12 pushing layer 15f1c8eb1ab1 58.30MB / 78.82MB 3.9s
+2026-11-07T19:05:12.6137102Z #12 pushing layer 15f1c8eb1ab1 63.71MB / 78.82MB 4.2s
+2026-11-07T19:05:12.8278454Z #12 pushing layer 15f1c8eb1ab1 69.62MB / 78.82MB 4.4s
+2026-11-07T19:05:13.0570133Z #12 pushing layer 15f1c8eb1ab1 75.54MB / 78.82MB 4.6s
+2026-11-07T19:05:13.3708121Z #12 pushing layer 15f1c8eb1ab1 81.25MB / 78.82MB 4.8s
+2026-11-07T19:05:14.3365912Z #12 pushing layer 15f1c8eb1ab1 5.9s done
+2026-11-07T19:05:16.8052902Z #12 pushing layer 45360af7f983 8.4s done
+2026-11-07T19:05:16.9564799Z #12 pushing layer e117d9c82914 8.4s done
+2026-11-07T19:05:16.9565458Z #12 pushing layer a49f6dbcd8e9 8.4s done
+2026-11-07T19:05:16.9565811Z #12 DONE 8.5s
+2026-11-07T19:05:17.9628417Z ##[group]ImageID
+2026-11-07T19:05:17.9629132Z sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24
+2026-11-07T19:05:17.9630493Z ##[endgroup]
+2026-11-07T19:05:17.9631259Z ##[group]Digest
+2026-11-07T19:05:17.9631789Z sha256:3c5915f71fa20c2c225da6924bc81f2c0db103d0753e5c3cd87f7fa8d774487a
+2026-11-07T19:05:17.9632793Z ##[endgroup]
+2026-11-07T19:05:17.9633243Z ##[group]Metadata
+2026-11-07T19:05:17.9634901Z ::stop-commands::***
+2026-11-07T19:05:17.9635265Z {
+2026-11-07T19:05:17.9635606Z   "buildx.build.provenance": {
+2026-11-07T19:05:17.9635938Z     "builder": {
+2026-11-07T19:05:17.9636297Z       "id": ""
+2026-11-07T19:05:17.9636593Z     },
+2026-11-07T19:05:17.9636948Z     "buildType": "https://mobyproject.org/buildkit@v1",
+2026-11-07T19:05:17.9637355Z     "materials": [
+2026-11-07T19:05:17.9637677Z       {
+2026-11-07T19:05:17.9638208Z         "uri": "pkg:docker/python@3.10-slim?platform=linux%2Famd64",
+2026-11-07T19:05:17.9638737Z         "digest": {
+2026-11-07T19:05:17.9639726Z           "sha256": "6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d"
+2026-11-07T19:05:17.9640768Z         }
+2026-11-07T19:05:17.9641167Z       }
+2026-11-07T19:05:17.9641632Z     ],
+2026-11-07T19:05:17.9642051Z     "invocation": {
+2026-11-07T19:05:17.9642357Z       "configSource": {
+2026-11-07T19:05:17.9642794Z         "entryPoint": "Dockerfile"
+2026-11-07T19:05:17.9643152Z       },
+2026-11-07T19:05:17.9643522Z       "parameters": {
+2026-11-07T19:05:17.9643860Z         "frontend": "dockerfile.v0",
+2026-11-07T19:05:17.9644250Z         "locals": [
+2026-11-07T19:05:17.9644595Z           {
+2026-11-07T19:05:17.9644908Z             "name": "context"
+2026-11-07T19:05:17.9645217Z           },
+2026-11-07T19:05:17.9645502Z           {
+2026-11-07T19:05:17.9645886Z             "name": "dockerfile"
+2026-11-07T19:05:17.9646289Z           }
+2026-11-07T19:05:17.9646586Z         ]
+2026-11-07T19:05:17.9646866Z       },
+2026-11-07T19:05:17.9647150Z       "environment": {
+2026-11-07T19:05:17.9647486Z         "platform": "linux/amd64"
+2026-11-07T19:05:17.9647874Z       }
+2026-11-07T19:05:17.9648217Z     }
+2026-11-07T19:05:17.9648562Z   },
+2026-11-07T19:05:17.9649059Z   "buildx.build.ref": "default/default/a0sy5w5sjztlajngrmawtov3f",
+2026-11-07T19:05:17.9650125Z   "containerimage.config.digest": "sha256:544be19e0bd048c54314d8a9f4a9f9d763cb32b5432d0a4ef4dea7c317b7af24",
+2026-11-07T19:05:17.9651050Z   "containerimage.digest": "sha256:3c5915f71fa20c2c225da6924bc81f2c0db103d0753e5c3cd87f7fa8d774487a",
+2026-11-07T19:05:17.9651971Z   "image.name": "ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api:14afdb288ad0591c777048f7e45e2bc20cd4de06"
+2026-11-07T19:05:17.9652671Z }
+2026-11-07T19:05:17.9653405Z ::***::
+2026-11-07T19:05:17.9653942Z ##[endgroup]
+2026-11-07T19:05:17.9654474Z ##[group]Reference
+2026-11-07T19:05:17.9654926Z default/default/a0sy5w5sjztlajngrmawtov3f
+2026-11-07T19:05:17.9655661Z ##[endgroup]
+2026-11-07T19:05:17.9656377Z ##[group]Check build summary support
+2026-11-07T19:05:17.9657061Z Build summary supported!
+2026-11-07T19:05:17.9657666Z ##[endgroup]
+2026-11-07T19:05:17.9843137Z Post job cleanup.
+2026-11-07T19:05:18.2206280Z ##[group]Generating build summary
+2026-11-07T19:05:18.2914322Z exporting build record to /home/runner/work/_temp/docker-actions-toolkit-aJxU6v/export
+2026-11-07T19:05:18.3723816Z [command]/usr/bin/docker buildx history export --builder default --output /home/runner/work/_temp/docker-actions-toolkit-aJxU6v/export/pedrocostakl~cybersecurity_lab_devsecops~A0SY5W.dockerbuild a0sy5w5sjztlajngrmawtov3f --finalize
+2026-11-07T19:05:18.4532542Z Build record written to /home/runner/work/_temp/docker-actions-toolkit-aJxU6v/export/pedrocostakl~cybersecurity_lab_devsecops~A0SY5W.dockerbuild (11.67 KB)
+2026-11-07T19:05:18.4533870Z Uploading pedrocostakl~cybersecurity_lab_devsecops~A0SY5W.dockerbuild as an artifact
+2026-11-07T19:05:18.4550562Z Artifact name is valid!
+2026-11-07T19:05:18.4551309Z Root directory input is valid!
+2026-11-07T19:05:18.7991714Z Uploading artifact: pedrocostakl~cybersecurity_lab_devsecops~A0SY5W.dockerbuild
+2026-11-07T19:05:18.8021919Z Beginning upload of artifact content to blob storage
+2026-11-07T19:05:19.0535720Z Uploaded bytes 11947
+2026-11-07T19:05:19.1162060Z Finished uploading artifact content to blob storage!
+2026-11-07T19:05:19.1163009Z SHA256 digest of uploaded artifact is 80017516607e4bb8232011502a914f1e3607db5d3c5aae74ac73fd893a5fc277
+2026-11-07T19:05:19.1170383Z Finalizing artifact upload
+2026-11-07T19:05:19.6129948Z Artifact pedrocostakl~cybersecurity_lab_devsecops~A0SY5W.dockerbuild successfully finalized. Artifact ID 13586393179
+2026-11-07T19:05:19.6131129Z Artifact download URL: https://github.com/pedrocostakl/cybersecurity_lab_devsecops/actions/runs/42404377970/artifacts/13586393179
+2026-11-07T19:05:19.6160258Z Writing summary
+2026-11-07T19:05:19.6171965Z ##[endgroup]
+2026-11-07T19:05:19.6172713Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-MVY6kB
+2026-11-07T19:05:19.6176313Z ##[endgroup]
+2026-11-07T19:05:19.6176945Z ##[group]Post cache
+2026-11-07T19:05:19.6177673Z State not set
+2026-11-07T19:05:19.6178396Z ##[endgroup]
+2026-11-07T19:05:19.6331417Z Post job cleanup.
+2026-11-07T19:05:19.8356771Z ##[group]Logout from ghcr.io
+2026-11-07T19:05:19.8408953Z [command]/usr/bin/docker logout ghcr.io
+2026-11-07T19:05:19.8563074Z Removing login credentials for ghcr.io
+2026-11-07T19:05:19.8587734Z ##[endgroup]
+2026-11-07T19:05:19.8588873Z ##[group]Post cache
+2026-11-07T19:05:19.8589666Z State not set
+2026-11-07T19:05:19.8590493Z ##[endgroup]
+2026-11-07T19:05:19.8809057Z Post job cleanup.
+2026-11-07T19:05:20.1078987Z ##[group]Generating build summary
+2026-11-07T19:05:20.1788541Z exporting build record to /home/runner/work/_temp/docker-actions-toolkit-gvNoHo/export
+2026-11-07T19:05:20.2526793Z [command]/usr/bin/docker buildx history export --builder default --output /home/runner/work/_temp/docker-actions-toolkit-gvNoHo/export/pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild v1w0blykp89c7029j2nswzq0e --finalize
+2026-11-07T19:05:20.3572257Z Build record written to /home/runner/work/_temp/docker-actions-toolkit-gvNoHo/export/pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild (19.21 KB)
+2026-11-07T19:05:20.3573850Z Uploading pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild as an artifact
+2026-11-07T19:05:20.3580144Z Artifact name is valid!
+2026-11-07T19:05:20.3580675Z Root directory input is valid!
+2026-11-07T19:05:20.6994698Z Uploading artifact: pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild
+2026-11-07T19:05:20.7027088Z Beginning upload of artifact content to blob storage
+2026-11-07T19:05:20.9911808Z Uploaded bytes 19669
+2026-11-07T19:05:21.0533427Z Finished uploading artifact content to blob storage!
+2026-11-07T19:05:21.0534577Z SHA256 digest of uploaded artifact is 80b9db6b548b8a28e54c13f8a995ff8135ff5a6408dd09a3413f6208b001d1c8
+2026-11-07T19:05:21.0535499Z Finalizing artifact upload
+2026-11-07T19:05:21.5683566Z Artifact pedrocostakl~cybersecurity_lab_devsecops~V1W0BL.dockerbuild successfully finalized. Artifact ID 13586273477
+2026-11-07T19:05:21.5685316Z Artifact download URL: https://github.com/pedrocostakl/cybersecurity_lab_devsecops/actions/runs/42404377970/artifacts/13586273477
+2026-11-07T19:05:21.5713287Z Writing summary
+2026-11-07T19:05:21.5724828Z ##[endgroup]
+2026-11-07T19:05:21.5725722Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-0YVzQh
+2026-11-07T19:05:21.5732046Z ##[endgroup]
+2026-11-07T19:05:21.5732651Z ##[group]Post cache
+2026-11-07T19:05:21.5733161Z State not set
+2026-11-07T19:05:21.5733760Z ##[endgroup]
+2026-11-07T19:05:21.5902247Z Post job cleanup.
+2026-11-07T19:05:21.6768813Z [command]/usr/bin/git version
+2026-11-07T19:05:21.6820254Z git version 2.56.0
+2026-11-07T19:05:21.6856804Z Temporarily overriding HOME='/home/runner/work/_temp/ed8d9ba9-a8fc-485a-b314-83c8a9833a4f' before making global git config changes
+2026-11-07T19:05:21.6858320Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-07T19:05:21.6862860Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops
+2026-11-07T19:05:21.6901618Z Removing SSH command configuration
+2026-11-07T19:05:21.6910248Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-07T19:05:21.6963394Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-07T19:05:21.7165054Z Removing HTTP extra header
+2026-11-07T19:05:21.7170844Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-07T19:05:21.7201520Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-07T19:05:21.7407018Z Removing includeIf entries pointing to credentials config files
+2026-11-07T19:05:21.7412681Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-07T19:05:21.7443649Z includeif.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git.path
+2026-11-07T19:05:21.7445203Z includeif.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/worktrees/*.path
+2026-11-07T19:05:21.7446760Z includeif.gitdir:/github/workspace/.git.path
+2026-11-07T19:05:21.7447660Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-07T19:05:21.7450041Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git.path
+2026-11-07T19:05:21.7471587Z /home/runner/work/_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:05:21.7484153Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-555f0c81\-5902\-431a\-b656\-332d8a37c881\.config
+2026-11-07T19:05:21.7530630Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/worktrees/*.path
+2026-11-07T19:05:21.7558813Z /home/runner/work/_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:05:21.7568932Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-555f0c81\-5902\-431a\-b656\-332d8a37c881\.config
+2026-11-07T19:05:21.7599149Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-07T19:05:21.7620471Z /github/runner_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:05:21.7627049Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-555f0c81\-5902\-431a\-b656\-332d8a37c881\.config
+2026-11-07T19:05:21.7657597Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-07T19:05:21.7682721Z /github/runner_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config
+2026-11-07T19:05:21.7687284Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-555f0c81\-5902\-431a\-b656\-332d8a37c881\.config
+2026-11-07T19:05:21.7720295Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-07T19:05:21.7897955Z Removing credentials config '/home/runner/work/_temp/git-credentials-555f0c81-5902-431a-b656-332d8a37c881.config'
+2026-11-07T19:05:21.8030801Z Cleaning up orphan processes

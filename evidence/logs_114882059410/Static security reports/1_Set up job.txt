@@ -1,0 +1,35 @@
+﻿2026-11-07T19:04:10.8556792Z Current runner version: '2.338.2'
+2026-11-07T19:04:10.8583260Z ##[group]Runner Image Provisioner
+2026-11-07T19:04:10.8584664Z Hosted Compute Agent
+2026-11-07T19:04:10.8585578Z Version: 20261028.624
+2026-11-07T19:04:10.8586501Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-07T19:04:10.8588248Z Build Date: 2026-10-28T21:51:42Z
+2026-11-07T19:04:10.8589310Z Worker ID: {4b5a0b87-71ad-4213-a002-07fdf2108f3a}
+2026-11-07T19:04:10.8590444Z Region: eastus3
+2026-11-07T19:04:10.8591448Z Cloud: Azure
+2026-11-07T19:04:10.8592292Z ##[endgroup]
+2026-11-07T19:04:10.8594584Z ##[group]Operating System
+2026-11-07T19:04:10.8595601Z Ubuntu
+2026-11-07T19:04:10.8596426Z 24.04.5
+2026-11-07T19:04:10.8597192Z LTS
+2026-11-07T19:04:10.8597902Z ##[endgroup]
+2026-11-07T19:04:10.8598795Z ##[group]Runner Image
+2026-11-07T19:04:10.8599714Z Image: ubuntu-24.04
+2026-11-07T19:04:10.8600553Z Version: 20261101.360.1
+2026-11-07T19:04:10.8602172Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-07T19:04:10.8604553Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-07T19:04:10.8605501Z ##[endgroup]
+2026-11-07T19:04:10.8606688Z ##[group]GITHUB_TOKEN Permissions
+2026-11-07T19:04:10.8609195Z Contents: read
+2026-11-07T19:04:10.8609771Z Metadata: read
+2026-11-07T19:04:10.8610391Z Packages: write
+2026-11-07T19:04:10.8610954Z ##[endgroup]
+2026-11-07T19:04:10.8613557Z Secret source: Actions
+2026-11-07T19:04:10.8614471Z Cache mode: write
+2026-11-07T19:04:10.8615122Z Prepare workflow directory
+2026-11-07T19:04:10.9401098Z Prepare all required actions
+2026-11-07T19:04:10.9483780Z Getting action download info
+2026-11-07T19:04:11.1640121Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-07T19:04:11.2566397Z Download action repository 'actions/setup-python@v7' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-07T19:04:11.5551601Z Download action repository 'actions/upload-artifact@v7' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-07T19:04:11.7100979Z Complete job name: Static security reports

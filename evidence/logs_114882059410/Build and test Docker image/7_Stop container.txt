@@ -1,0 +1,9 @@
+﻿2026-11-07T19:05:06.2857619Z ##[group]Run docker stop secure-coding-api
+2026-11-07T19:05:06.2858164Z [36;1mdocker stop secure-coding-api[0m
+2026-11-07T19:05:06.2858576Z [36;1mdocker rm secure-coding-api[0m
+2026-11-07T19:05:06.2872308Z shell: /usr/bin/bash -e {0}
+2026-11-07T19:05:06.2872684Z env:
+2026-11-07T19:05:06.2873167Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-07T19:05:06.2873646Z ##[endgroup]
+2026-11-07T19:05:06.4387848Z secure-coding-api
+2026-11-07T19:05:06.4602594Z secure-coding-api
