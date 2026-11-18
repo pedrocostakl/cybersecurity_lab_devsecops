@@ -71,7 +71,7 @@ There is no stored state to check for V2, because downloads do not modify data.
 ## Pre-patch results
 
 - **Local:** [`pre-patch-security-tests-local.txt`](pre-patch-security-tests-local.txt) shows **15 failed, 6 passed**. All 6 passing tests are legitimate operations. Every failure is a security assertion (wrong status or disclosed data). None is an import error, broken fixture or missing dependency.
-- **CI (before patching):** _add the GitHub Actions run link here after pushing._ Expected result: `Selected security regression tests` fails and `Build and test Docker image` is skipped.
+- **CI (before patching):** https://github.com/pedrocostakl/cybersecurity_lab_devsecops/actions/runs/44351630347. `Selected security regression tests` failed and `Build and test Docker image` was skipped.
 
 ## Check that the tests reject incomplete patches
 
