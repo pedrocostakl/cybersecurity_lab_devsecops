@@ -1,0 +1,120 @@
+# Environment: local run, Python 3.13.14, Flask 3.1.3, Windows 11, 2026-11-17
+# Source commit: 14afdb2 (baseline_secure_coding_api.py unmodified)
+Baseline reproduction of consolidated findings
+========================================================================
+[F01] VIOLATION unauthenticated read
+       request : GET /students/1001/profile (no session)
+       response: 200 {"email":"alice@uc.pt","name":"Alice","program":"MEI","student_id":1001}
+[F01] VIOLATION unauthenticated read
+       request : GET /grades/1001 (no session)
+       response: 200 [{"course_id":"SRS","grade":14,"student_id":1001},{"course_id":"SSD","grade":16,"student_id":1001}]
+[F01] VIOLATION unauthenticated read
+       request : GET /files?path=srs-summary.txt (no session)
+       response: 200 Secure Requirements Engineering summary
+[F01] VIOLATION unauthenticated grade update
+       request : POST /grades/update grade=0 (no session)
+       response: 200 {"course_id":"SRS","grade":0,"status":"ok","student_id":1001}
+       note    : stored grade now 0 (was 14)
+[F02] VIOLATION student reads another student's profile
+       request : alice: GET /students/1002/profile
+       response: 200 {"email":"bob@uc.pt","name":"Bob","program":"MEI","student_id":1002}
+[F02] VIOLATION student reads another student's grades
+       request : alice: GET /grades/1002
+       response: 200 [{"course_id":"SRS","grade":15,"student_id":1002}]
+[F03] VIOLATION professor reads a student profile
+       request : prof_srs: GET /students/1001/profile
+       response: 200 {"email":"alice@uc.pt","name":"Alice","program":"MEI","student_id":1001}
+[F04] VIOLATION professor grade list not filtered by course
+       request : prof_srs: GET /grades/1001
+       response: 200 [{"course_id":"SRS","grade":14,"student_id":1001},{"course_id":"SSD","grade":16,"student_id":1001}]
+       note    : out-of-scope rows returned: [{'course_id': 'SSD', 'grade': 16, 'student_id': 1001}]
+[F05] VIOLATION professor updates grade of unassigned course
+       request : prof_srs: POST SSD grade=0
+       response: 200 {"course_id":"SSD","grade":0,"status":"ok","student_id":1001}
+       note    : stored SSD grade now 0 (was 16)
+[F05] VIOLATION student updates own grade
+       request : alice: POST SRS grade=20
+       response: 200 {"course_id":"SRS","grade":20,"status":"ok","student_id":1001}
+       note    : stored grade now 20 (was 14)
+[F06] VIOLATION invalid update: grade above range
+       request : admin1: POST {'student_id': 1001, 'course_id': 'SRS', 'grade': 25}
+       response: 200 {"course_id":"SRS","grade":25,"status":"ok","student_id":1001}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: negative grade
+       request : admin1: POST {'student_id': 1001, 'course_id': 'SRS', 'grade': -1}
+       response: 200 {"course_id":"SRS","grade":-1,"status":"ok","student_id":1001}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: boolean grade
+       request : admin1: POST {'student_id': 1001, 'course_id': 'SRS', 'grade': True}
+       response: 200 {"course_id":"SRS","grade":true,"status":"ok","student_id":1001}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: string grade
+       request : admin1: POST {'student_id': 1001, 'course_id': 'SRS', 'grade': 'A+'}
+       response: 200 {"course_id":"SRS","grade":"A+","status":"ok","student_id":1001}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: unknown course
+       request : admin1: POST {'student_id': 1001, 'course_id': 'XYZ', 'grade': 10}
+       response: 200 {"course_id":"XYZ","grade":10,"status":"ok","student_id":1001}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: nonexistent student
+       request : admin1: POST {'student_id': 9999, 'course_id': 'SRS', 'grade': 10}
+       response: 200 {"course_id":"SRS","grade":10,"status":"ok","student_id":9999}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: student id as string
+       request : admin1: POST {'student_id': '1001', 'course_id': 'SRS', 'grade': 10}
+       response: 200 {"course_id":"SRS","grade":10,"status":"ok","student_id":"1001"}
+       note    : GRADES changed: True
+[F06] VIOLATION invalid update: missing grade field
+       request : admin1: POST {'student_id': 1001, 'course_id': 'SRS'}
+       response: 500 {"error":"'grade'","type":"KeyError"}
+       note    : GRADES changed: False
+[F06] VIOLATION invalid update: JSON array body
+       request : admin1: POST [1, 2, 3]
+       response: 500 {"error":"list indices must be integers or slices, not str","type":"TypeError"}
+       note    : GRADES changed: False
+[F07] VIOLATION student id 'abc'
+       request : admin1: GET /grades/abc
+       response: 500 {"error":"invalid literal for int() with base 10: 'abc'","type":"ValueError"}
+[F07] VIOLATION student id '0'
+       request : admin1: GET /grades/0
+       response: 200 []
+[F07] VIOLATION student id '-1'
+       request : admin1: GET /grades/-1
+       response: 200 []
+[F08] ok        legitimate material download
+       request : alice: GET /files?path=notes.txt
+       response: 200 allowed teaching material
+[F08] VIOLATION read outside materials dir
+       request : alice: GET /files?path=../secret.txt
+       response: 200 TOP-SECRET-OUTSIDE-MATERIALS
+       note    : outside content disclosed: True
+[F08] VIOLATION read outside materials dir
+       request : alice: GET /files?path=sub/../../secret.txt
+       response: 200 TOP-SECRET-OUTSIDE-MATERIALS
+       note    : outside content disclosed: True
+[F08] VIOLATION read outside materials dir
+       request : alice: GET /files?path=<tmp>\tmpk0tqo8_h\secret.txt
+       response: 200 TOP-SECRET-OUTSIDE-MATERIALS
+       note    : outside content disclosed: True
+[F09] VIOLATION missing file leaks absolute server path
+       request : admin1: GET /files?path=does-not-exist.txt
+       response: 500 {"error":"[WinError 2] O sistema n\u00e3o conseguiu localizar o ficheiro especificado: 'C:\\\\Users\\\\Luis\\\\Documents\\\\Universidade\\\\Mestrado\\\\2S\\\...
+[F09] VIOLATION unknown route returns 500 instead of 404
+       request : GET /no-such-route
+       response: 500 {"error":"404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.","type":"No...
+[F09] VIOLATION wrong method returns 500 instead of 405
+       request : GET /login
+       response: 500 {"error":"405 Method Not Allowed: The method is not allowed for the requested URL.","type":"MethodNotAllowed"}
+[F10] VIOLATION forged cookie signed with 'dev-secret-key'
+       request : GET /me with forged admin cookie
+       response: 200 {"courses":[],"role":"admin","student_id":null,"user":"admin1"}
+[F11] code fact  plaintext passwords in USERS: ['alicepw', 'bobpw', 'profpw', 'adminpw']
+[F12] code fact  'debug=True' in source: True; Dockerfile runs the __main__ block: True
+[F13] observed   Set-Cookie: session=eyJjb3Vyc2VzIjpbXSwicm9sZSI6InN0dWRlbnQiLCJzdHVkZW50X2lkIjoxMDAxLCJ1c2VyIjoiYWxpY2UifQ.avuf4Q.ukKeA-Uyrf_NWiX-xvgCU0x33SU; HttpOnly; Path=/
+       note    : HttpOnly is set by Flask's default; Secure and SameSite are absent.
+[F16] observed   pre-login cookie value replaced at login: True; no server-side session id exists to fix.
+[F17] VIOLATION cookie captured before logout still accepted
+       request : GET /me with pre-logout cookie
+       response: 200 {"courses":[],"role":"student","student_id":1001,"user":"alice"}
+========================================================================
+Findings with at least one reproduced violation: F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F17

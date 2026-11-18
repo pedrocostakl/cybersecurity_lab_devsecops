@@ -1,0 +1,100 @@
+# Local pre-patch run - Python 3.13.14, pytest 9.2.0, 2026-11-17, source commit 14afdb2 (application unmodified)
+# Command: python -m pytest -v tests_security --tb=line
+============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.2.0, pluggy-1.7.0 -- <venv>/python.exe
+rootdir: <repo>
+collecting ... collected 21 items
+
+tests_security/test_file_access.py::test_authenticated_user_can_download_material PASSED [  4%]
+tests_security/test_file_access.py::test_authenticated_user_can_download_nested_material PASSED [  9%]
+tests_security/test_file_access.py::test_parent_directory_traversal_is_blocked FAILED [ 14%]
+tests_security/test_file_access.py::test_traversal_hidden_after_valid_subdirectory_is_blocked FAILED [ 19%]
+tests_security/test_file_access.py::test_absolute_path_is_blocked FAILED [ 23%]
+tests_security/test_file_access.py::test_sibling_directory_with_same_prefix_is_blocked FAILED [ 28%]
+tests_security/test_file_access.py::test_percent_encoded_traversal_is_blocked FAILED [ 33%]
+tests_security/test_file_access.py::test_unauthenticated_download_is_rejected FAILED [ 38%]
+tests_security/test_file_access.py::test_missing_material_returns_client_error_without_internal_path FAILED [ 42%]
+tests_security/test_grade_authorization.py::test_assigned_professor_can_update_grade PASSED [ 47%]
+tests_security/test_grade_authorization.py::test_admin_can_update_any_course_grade PASSED [ 52%]
+tests_security/test_grade_authorization.py::test_student_can_read_own_grades PASSED [ 57%]
+tests_security/test_grade_authorization.py::test_admin_can_read_all_grades_of_a_student PASSED [ 61%]
+tests_security/test_grade_authorization.py::test_professor_cannot_update_grade_in_unassigned_course FAILED [ 66%]
+tests_security/test_grade_authorization.py::test_student_cannot_update_own_grade FAILED [ 71%]
+tests_security/test_grade_authorization.py::test_unauthenticated_update_is_rejected_without_change FAILED [ 76%]
+tests_security/test_grade_authorization.py::test_professor_cannot_create_record_in_unassigned_course FAILED [ 80%]
+tests_security/test_grade_authorization.py::test_student_cannot_read_another_students_grades FAILED [ 85%]
+tests_security/test_grade_authorization.py::test_professor_grade_list_is_filtered_to_assigned_courses FAILED [ 90%]
+tests_security/test_grade_authorization.py::test_professor_denied_when_no_permitted_records FAILED [ 95%]
+tests_security/test_grade_authorization.py::test_unauthenticated_grade_read_is_rejected FAILED [100%]
+
+================================== FAILURES ===================================
+E   assert 200 in (400, 403, 404)
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_file_access.py:53: assert 200 in (400, 403, 404)
+E   assert 200 in (400, 403, 404)
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_file_access.py:53: assert 200 in (400, 403, 404)
+E   assert 200 in (400, 403, 404)
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_file_access.py:53: assert 200 in (400, 403, 404)
+E   assert 200 in (400, 403, 404)
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_file_access.py:53: assert 200 in (400, 403, 404)
+E   assert 200 in (400, 403, 404)
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_file_access.py:53: assert 200 in (400, 403, 404)
+E   assert 200 == 401
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_file_access.py:131: assert 200 == 401
+E   assert 500 == 404
+     +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code
+<repo>\tests_security\test_file_access.py:140: assert 500 == 404
+E   assert 200 == 403
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:83: assert 200 == 403
+E   assert 200 == 403
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:97: assert 200 == 403
+E   assert 200 == 401
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:109: assert 200 == 401
+E   assert 200 == 403
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:124: assert 200 == 403
+E   assert 200 == 403
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:136: assert 200 == 403
+E   AssertionError: assert [{'course_id'...nt_id': 1001}] == [{'student_id... 'grade': 14}]
+      
+      Left contains one more item: {'course_id': 'SSD', 'grade': 16, 'student_id': 1001}
+      
+      Full diff: (-: missing in left side, +: extra in left side)
+        [
+            {
+      -         'student_id': 1001,...
+      
+      ...Full output truncated, use '-vv' to show
+<repo>\tests_security\test_grade_authorization.py:149: AssertionError: assert [{'course_id'...nt_id': 1001}] == [{'student_id... 'grade': 14}]
+E   assert 200 == 403
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:162: assert 200 == 403
+E   assert 200 == 401
+     +  where 200 = <WrapperTestResponse streamed [200 OK]>.status_code
+<repo>\tests_security\test_grade_authorization.py:169: assert 200 == 401
+=========================== short test summary info ===========================
+FAILED tests_security/test_file_access.py::test_parent_directory_traversal_is_blocked
+FAILED tests_security/test_file_access.py::test_traversal_hidden_after_valid_subdirectory_is_blocked
+FAILED tests_security/test_file_access.py::test_absolute_path_is_blocked - as...
+FAILED tests_security/test_file_access.py::test_sibling_directory_with_same_prefix_is_blocked
+FAILED tests_security/test_file_access.py::test_percent_encoded_traversal_is_blocked
+FAILED tests_security/test_file_access.py::test_unauthenticated_download_is_rejected
+FAILED tests_security/test_file_access.py::test_missing_material_returns_client_error_without_internal_path
+FAILED tests_security/test_grade_authorization.py::test_professor_cannot_update_grade_in_unassigned_course
+FAILED tests_security/test_grade_authorization.py::test_student_cannot_update_own_grade
+FAILED tests_security/test_grade_authorization.py::test_unauthenticated_update_is_rejected_without_change
+FAILED tests_security/test_grade_authorization.py::test_professor_cannot_create_record_in_unassigned_course
+FAILED tests_security/test_grade_authorization.py::test_student_cannot_read_another_students_grades
+FAILED tests_security/test_grade_authorization.py::test_professor_grade_list_is_filtered_to_assigned_courses
+FAILED tests_security/test_grade_authorization.py::test_professor_denied_when_no_permitted_records
+FAILED tests_security/test_grade_authorization.py::test_unauthenticated_grade_read_is_rejected
+======================== 15 failed, 6 passed in 0.41s =========================

