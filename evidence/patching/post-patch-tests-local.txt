@@ -1,0 +1,36 @@
+# Local post-patch run - Python 3.13.14, 2026-11-18, after applying V1 + V2 patches and manual corrections
+# Command: python -m pytest -v tests_security tests
+============================= test session starts =============================
+platform win32 -- <python>
+rootdir: <repo>
+collecting ... collected 27 items
+
+tests_security/test_file_access.py::test_authenticated_user_can_download_material PASSED [  3%]
+tests_security/test_file_access.py::test_authenticated_user_can_download_nested_material PASSED [  7%]
+tests_security/test_file_access.py::test_parent_directory_traversal_is_blocked PASSED [ 11%]
+tests_security/test_file_access.py::test_traversal_hidden_after_valid_subdirectory_is_blocked PASSED [ 14%]
+tests_security/test_file_access.py::test_absolute_path_is_blocked PASSED [ 18%]
+tests_security/test_file_access.py::test_sibling_directory_with_same_prefix_is_blocked PASSED [ 22%]
+tests_security/test_file_access.py::test_percent_encoded_traversal_is_blocked PASSED [ 25%]
+tests_security/test_file_access.py::test_unauthenticated_download_is_rejected PASSED [ 29%]
+tests_security/test_file_access.py::test_missing_material_returns_client_error_without_internal_path PASSED [ 33%]
+tests_security/test_grade_authorization.py::test_assigned_professor_can_update_grade PASSED [ 37%]
+tests_security/test_grade_authorization.py::test_admin_can_update_any_course_grade PASSED [ 40%]
+tests_security/test_grade_authorization.py::test_student_can_read_own_grades PASSED [ 44%]
+tests_security/test_grade_authorization.py::test_admin_can_read_all_grades_of_a_student PASSED [ 48%]
+tests_security/test_grade_authorization.py::test_professor_cannot_update_grade_in_unassigned_course PASSED [ 51%]
+tests_security/test_grade_authorization.py::test_student_cannot_update_own_grade PASSED [ 55%]
+tests_security/test_grade_authorization.py::test_unauthenticated_update_is_rejected_without_change PASSED [ 59%]
+tests_security/test_grade_authorization.py::test_professor_cannot_create_record_in_unassigned_course PASSED [ 62%]
+tests_security/test_grade_authorization.py::test_student_cannot_read_another_students_grades PASSED [ 66%]
+tests_security/test_grade_authorization.py::test_professor_grade_list_is_filtered_to_assigned_courses PASSED [ 70%]
+tests_security/test_grade_authorization.py::test_professor_denied_when_no_permitted_records PASSED [ 74%]
+tests_security/test_grade_authorization.py::test_unauthenticated_grade_read_is_rejected PASSED [ 77%]
+tests/test_api.py::test_index_lists_endpoints PASSED                     [ 81%]
+tests/test_api.py::test_me_without_login_returns_no_user PASSED          [ 85%]
+tests/test_api.py::test_login_with_valid_credentials PASSED              [ 88%]
+tests/test_api.py::test_get_student_profile PASSED                       [ 92%]
+tests/test_api.py::test_get_student_grades PASSED                        [ 96%]
+tests/test_api.py::test_get_student_grades_requires_login PASSED         [100%]
+
+============================= 27 passed in 0.38s ==============================

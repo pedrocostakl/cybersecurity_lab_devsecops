@@ -50,7 +50,14 @@ def test_get_student_profile():
 
 
 def test_get_student_grades():
+    # Updated for R1: grades now require login, so the legitimate read is made
+    # by the owning student. The original assertions are unchanged.
     client = app.test_client()
+    client.post(
+        "/login",
+        data={"username": "alice", "password": "alicepw"},
+        follow_redirects=True,
+    )
 
     response = client.get("/grades/1001")
 
@@ -58,3 +65,12 @@ def test_get_student_grades():
     data = response.get_json()
     assert isinstance(data, list)
     assert any(row["course_id"] == "SRS" for row in data)
+
+
+def test_get_student_grades_requires_login():
+    # Added for R1: the anonymous access the original test relied on is now denied.
+    client = app.test_client()
+
+    response = client.get("/grades/1001")
+
+    assert response.status_code == 401
