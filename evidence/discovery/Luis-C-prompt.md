@@ -222,32 +222,8 @@ Authenticated users may download teaching materials within the materials
 directory. Requests must not read files outside that directory.
 R7 — Error handling:
 Invalid requests must return appropriate client errors without exposing
-These requirements are the exercise's explicit policy, not a claim that the baseline implements
-them. Save the request and response as C-prompt.md and C-response.md .
-Checkpoint: Which findings changed? Did the model identify a missing control, merely repeat
-a requirement, or invent an issue? Do not resolve this by asking the model to grade its own
-answers.
-Part III — Validate and Compare Findings
-7. Build a consolidated findings table
-After saving the responses from A, B, and C, compare their findings with the Bandit and
-Semgrep reports using the table below. Give each distinct vulnerability an identifier, such as
-F01 or F02, and use the same identifier wherever that vulnerability appears.
-Use:
-ID Root cause
-and
-affected
-operation
-Bandit
-rule
-Semgrep
-rule
-A B C Validation
-status
-Evidence
-F01
-Use statuses such as:
 internal paths, tracebacks, or implementation exception details.
-Unauthenticated protected requests return 401; authenticated but
+Unauthenticated protected requests return 401; authenticated but 
 unauthorized
-requests return 403. A denied or invalid update must leave stored data
-unchanged.
+requests return 403. A denied or invalid update must leave stored data 
+unchanged
