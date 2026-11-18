@@ -1,0 +1,88 @@
+﻿2026-11-18T17:32:07.7945508Z ##[group]Run actions/checkout@v7
+2026-11-18T17:32:07.7946184Z with:
+2026-11-18T17:32:07.7946603Z   repository: pedrocostakl/cybersecurity_lab_devsecops
+2026-11-18T17:32:07.7949856Z   token: ***
+2026-11-18T17:32:07.7950222Z   ssh-strict: true
+2026-11-18T17:32:07.7950578Z   ssh-user: git
+2026-11-18T17:32:07.7950934Z   persist-credentials: true
+2026-11-18T17:32:07.7951321Z   clean: true
+2026-11-18T17:32:07.7951678Z   sparse-checkout-cone-mode: true
+2026-11-18T17:32:07.7952086Z   fetch-depth: 1
+2026-11-18T17:32:07.7952431Z   fetch-tags: false
+2026-11-18T17:32:07.7952782Z   show-progress: true
+2026-11-18T17:32:07.7953135Z   lfs: false
+2026-11-18T17:32:07.7953461Z   submodules: false
+2026-11-18T17:32:07.7953820Z   set-safe-directory: true
+2026-11-18T17:32:07.7954232Z   allow-unsafe-pr-checkout: false
+2026-11-18T17:32:07.7954816Z env:
+2026-11-18T17:32:07.7955359Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-18T17:32:07.7955968Z ##[endgroup]
+2026-11-18T17:32:08.0434282Z Syncing repository: pedrocostakl/cybersecurity_lab_devsecops
+2026-11-18T17:32:08.0435964Z ##[group]Getting Git version info
+2026-11-18T17:32:08.0436806Z Working directory is '/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops'
+2026-11-18T17:32:08.0437886Z [command]/usr/bin/git version
+2026-11-18T17:32:08.0453333Z git version 2.56.1
+2026-11-18T17:32:08.0469883Z ##[endgroup]
+2026-11-18T17:32:08.0478764Z Temporarily overriding HOME='/home/runner/work/_temp/100ae61b-bfa3-49ea-b49f-eb48357bf3e8' before making global git config changes
+2026-11-18T17:32:08.0480629Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-18T17:32:08.0484141Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops
+2026-11-18T17:32:08.0543074Z Deleting the contents of '/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops'
+2026-11-18T17:32:08.0545506Z ##[group]Determining repository object format
+2026-11-18T17:32:08.0546700Z ##[endgroup]
+2026-11-18T17:32:08.0547575Z ##[group]Initializing the repository
+2026-11-18T17:32:08.0560646Z [command]/usr/bin/git init /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops
+2026-11-18T17:32:08.0919204Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-18T17:32:08.0920578Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-18T17:32:08.0921577Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-18T17:32:08.0922482Z hint: call:
+2026-11-18T17:32:08.0923015Z hint:
+2026-11-18T17:32:08.0923635Z hint: 	git config --global init.defaultBranch <name>
+2026-11-18T17:32:08.0924472Z hint:
+2026-11-18T17:32:08.0925134Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-18T17:32:08.0926156Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-18T17:32:08.0927268Z hint:
+2026-11-18T17:32:08.0927979Z hint: 	git branch -m <name>
+2026-11-18T17:32:08.0928871Z hint:
+2026-11-18T17:32:08.0929830Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-18T17:32:08.0932063Z Initialized empty Git repository in /home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/
+2026-11-18T17:32:08.0942414Z [command]/usr/bin/git remote add origin https://github.com/pedrocostakl/cybersecurity_lab_devsecops
+2026-11-18T17:32:08.1000358Z ##[endgroup]
+2026-11-18T17:32:08.1001503Z ##[group]Disabling automatic garbage collection
+2026-11-18T17:32:08.1004017Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-18T17:32:08.1040853Z ##[endgroup]
+2026-11-18T17:32:08.1042083Z ##[group]Setting up auth
+2026-11-18T17:32:08.1042962Z Removing SSH command configuration
+2026-11-18T17:32:08.1047173Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-18T17:32:08.1107837Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-18T17:32:08.1606324Z Removing HTTP extra header
+2026-11-18T17:32:08.1611631Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-18T17:32:08.1640887Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-18T17:32:08.1871977Z Removing includeIf entries pointing to credentials config files
+2026-11-18T17:32:08.1882916Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-18T17:32:08.1912945Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-18T17:32:08.2153424Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-f3e2314e-5098-40eb-854a-efb720b45750.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-18T17:32:08.2188046Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git.path /home/runner/work/_temp/git-credentials-f3e2314e-5098-40eb-854a-efb720b45750.config
+2026-11-18T17:32:08.2215946Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/cybersecurity_lab_devsecops/cybersecurity_lab_devsecops/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-f3e2314e-5098-40eb-854a-efb720b45750.config
+2026-11-18T17:32:08.2248173Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-f3e2314e-5098-40eb-854a-efb720b45750.config
+2026-11-18T17:32:08.2275600Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-f3e2314e-5098-40eb-854a-efb720b45750.config
+2026-11-18T17:32:08.2301898Z ##[endgroup]
+2026-11-18T17:32:08.2302773Z ##[group]Fetching the repository
+2026-11-18T17:32:08.2308075Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a1122bf4b23973c38683992fc863709d7d655166:refs/remotes/origin/main
+2026-11-18T17:32:08.7024815Z From https://github.com/pedrocostakl/cybersecurity_lab_devsecops
+2026-11-18T17:32:08.7025793Z  * [new ref]         a1122bf4b23973c38683992fc863709d7d655166 -> origin/main
+2026-11-18T17:32:08.7032776Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-18T17:32:08.7058921Z   origin/main
+2026-11-18T17:32:08.7065944Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-18T17:32:08.7088320Z a1122bf4b23973c38683992fc863709d7d655166
+2026-11-18T17:32:08.7092067Z ##[endgroup]
+2026-11-18T17:32:08.7092938Z ##[group]Determining the checkout info
+2026-11-18T17:32:08.7093740Z ##[endgroup]
+2026-11-18T17:32:08.7097733Z [command]/usr/bin/git sparse-checkout disable
+2026-11-18T17:32:08.7147575Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-18T17:32:08.7179045Z ##[group]Checking out the ref
+2026-11-18T17:32:08.7179807Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-18T17:32:08.7472948Z Switched to a new branch 'main'
+2026-11-18T17:32:08.7477175Z branch 'main' set up to track 'origin/main'.
+2026-11-18T17:32:08.7484235Z ##[endgroup]
+2026-11-18T17:32:08.7530874Z [command]/usr/bin/git log -1 --format=%H
+2026-11-18T17:32:08.7555998Z a1122bf4b23973c38683992fc863709d7d655166

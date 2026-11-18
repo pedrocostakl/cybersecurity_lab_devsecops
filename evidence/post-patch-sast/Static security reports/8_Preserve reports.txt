@@ -1,0 +1,31 @@
+﻿2026-11-18T17:32:32.0285382Z ##[group]Run actions/upload-artifact@v7
+2026-11-18T17:32:32.0285627Z with:
+2026-11-18T17:32:32.0285800Z   name: static-analysis-reports
+2026-11-18T17:32:32.0285995Z   path: reports/
+2026-11-18T17:32:32.0286173Z   if-no-files-found: error
+2026-11-18T17:32:32.0286378Z   retention-days: 30
+2026-11-18T17:32:32.0286552Z   compression-level: 6
+2026-11-18T17:32:32.0286722Z   overwrite: false
+2026-11-18T17:32:32.0286897Z   include-hidden-files: false
+2026-11-18T17:32:32.0287090Z   archive: true
+2026-11-18T17:32:32.0287251Z env:
+2026-11-18T17:32:32.0287518Z   IMAGE_NAME: ghcr.io/pedrocostakl/cybersecurity_lab_devsecops/secure-coding-api
+2026-11-18T17:32:32.0287880Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-18T17:32:32.0288210Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-11-18T17:32:32.0288745Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-18T17:32:32.0289053Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-18T17:32:32.0289378Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-11-18T17:32:32.0289666Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-11-18T17:32:32.0289915Z ##[endgroup]
+2026-11-18T17:32:32.1469589Z With the provided path, there will be 6 files uploaded
+2026-11-18T17:32:32.1470284Z Artifact name is valid!
+2026-11-18T17:32:32.1470599Z Root directory input is valid!
+2026-11-18T17:32:32.5063644Z Uploading artifact: static-analysis-reports.zip
+2026-11-18T17:32:32.5094245Z Beginning upload of artifact content to blob storage
+2026-11-18T17:32:32.8360823Z Uploaded bytes 4167
+2026-11-18T17:32:32.9127705Z Finished uploading artifact content to blob storage!
+2026-11-18T17:32:32.9128345Z SHA256 digest of uploaded artifact is a9aba5841af7a22b19d98937a476d43d4bd38bef110340ae031cdaf081bf441e
+2026-11-18T17:32:32.9129085Z Finalizing artifact upload
+2026-11-18T17:32:33.4503989Z Artifact static-analysis-reports successfully finalized. Artifact ID 14454104085
+2026-11-18T17:32:33.4505043Z Artifact static-analysis-reports has been successfully uploaded! Final size is 4167 bytes. Artifact ID is 14454104085
+2026-11-18T17:32:33.4508187Z Artifact download URL: https://github.com/pedrocostakl/cybersecurity_lab_devsecops/actions/runs/44359729566/artifacts/14454104085

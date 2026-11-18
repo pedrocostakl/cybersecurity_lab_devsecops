@@ -1,7 +1,6 @@
 # V2 repair prompt (path traversal, F08)
 
-- Model: [model name and version as displayed]
-- Date: [date]
+- Model: Opus 5.5
 - Conversation: new repair conversation, separate from the discovery conditions and from V1
 - Attached: baseline_secure_coding_api.py (version after the V1 fix), tests_security/conftest.py, tests_security/test_file_access.py
 
